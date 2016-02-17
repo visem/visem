@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>VisEm</title>
+		<style type="text/css">
+			body{
+				/*width: 100%;*/
+				margin:10px;
+				padding:0;
+			}
+			.content{
+				width: 80%;
+				margin: 0 auto;
+			}
+			.figure{
+				width: 80%;
+				margin: 0 auto;
+			}
+			img{
+				width: 100%;
+				margin: 0 auto;
+				border: 1px solid #333;
+			}
+			figcaption{
+				text-align: center;
+			}
+			.wrapper{
+				width: 70%;
+				margin: 0 auto;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<h1 ALIGN="center">Uma Representação Visual para Gerenciamento de Emergências em Ambientes Fechados</h1>		
+			
+			<br>
+			
+			<h4>Seções</h4>
+			
+			<ul>
+				<li>
+					<a href="#objetivo">Objetivo da VisEM</a>
+				</li>
+				<li>
+					<a href="#ferramenta">Ferramenta</a>
+				</li>
+				<li>
+					<a href="#estudodeavaliacao">Estudo de Avaliação</a>
+				</li>			
+			</ul>
+			
+			<br>				               
+	                
+            <h2 id="objetivo">Objetivo da VisEM</h2>
+            
+            <p align="justify">
+                Este trabalho apresenta uma solução visual, fornecida pela
+                aplicação VisEm, para gerenciamento de emergência em ambientes indoor. A VisEm faz parte do Sistema de Gerenciamento de Emergência para Ambientes Fechados (SGEAF),
+                o qual coleta, armazena e processa dados referentes a um
+                ambiente fechado e as pessoas contidas neste.
+
+            </p>
+            
+            <h2 id="ferramenta">Ferramenta</h2>
+            
+            <p></p>
+	               
+	        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/visaoestrutural.png" alt="Visão Estrutural" title="Visão Estrutural"/>
+					<figcaption ALIGN="center">Visão Estrutural</figcaption>
+				</figure>
+			</div>
+			
+			<br>		
+
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/simulacaoInicial.png" alt="Simulação da VisEM" title="Simulação da VisEM "/>
+					<figcaption ALIGN="center">Simulação da VisEM</figcaption>
+				</figure>
+			</div>
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/simulacao_de_um_momento_real.png" alt="Simulação de um Momento Real" title="Simulação de um Momento Real"/>
+					<figcaption ALIGN="center">Simulação de um Momento Real</figcaption>
+				</figure>		
+			</div>
+
+			<br>				
+
+			<h4>Arquivo script.py utilizado para gerar dados de pessoas aleatoriamente:</h4>		
+			
+			<div class="">
+				<pre>
+					<code>
+#!/usr/bin/python
+import random
+
+
+list = "[\n"
+num = 0
+
+for i in range(1,50):
+	list = list + str("\t{\n"
+	+"\t\t\"idPerson\":"+ str(i) +",\n"
+	+"\t\t\"positionX\":"+ str("{0:.1f}".format(random.random()*15)) +",\n"
+	+"\t\t\"positionY\":"+ str("{0:.1f}".format(random.random()*9)) +",\n"
+	+"\t\t\"stationary\":"+ str("true" if i%2 == 0 else "false") +",\n"
+	+"\t\t\"age\":"+ str(int(random.random()*100)) +",\n"
+	+"\t\t\"disability\":"+ str("1" if i%2 == 0 else "0") +"\n"
+	+"\t}")
+
+	if(i+1 != 50):
+		list = list + str(",\n")
+
+
+list = list + "\n]"
+file = open("people2.json","w+")
+file.write(list)
+file.close()			
+					</code>
+				</pre>						
+			</div>
+			
+			<br>				
+			
+			<h2 id="estudodeavaliacao">Estudo de Avaliacao</h2>
+
+            <p align="justify">
+O principal objetivo do estudo foi avaliar a eficácia dos recursos visuais utilizados na solução desenvolvida. Objetivos secundários foram definidos como analisar, compreender e propor correções nas representações visuais para uma maior aplicabilidade ao contexto emergencial.
+            </p>
+
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/legenda.png" alt="Legenda" title="Legenda" width="1000"/>
+					<figcaption ALIGN="center">Legenda</figcaption>
+				</figure>			
+			</div>				
+            
+			<br>				
+			
+	        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/solucao2momento1.png" alt="Momento 1" title="Momento 1"/>
+					<figcaption ALIGN="center">Momento 1</figcaption>
+				</figure>
+			</div>			
+
+			<br>							
+
+			<div class="">
+				<pre>
+Primeira questão:
+a) criança/adolescente, sem deficiência, muito tempo nesta posição.
+b) adulto, sem deficiência, pouco tempo nesta posição.
+c) idoso, deficiente, muito tempo nesta posição.
+d) criança/adolescente, sem deficiência, pouco tempo nesta posição.
+e) idoso, sem deficiência, muito tempo nesta posição.
+				</pre>						
+			</div>
+
+			<br>										
+						
+	        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/solucao2momento2.png" alt="Momento 2" title="Momento 2"/>
+					<figcaption ALIGN="center">Momento 2</figcaption>
+				</figure>
+			</div>			
+			
+			<br>							
+
+			<div class="">
+				<pre>
+Segunda questão: 
+a) idoso, deficiente, pouco tempo nesta posição. 
+b) adulto, sem deficiência, pouco tempo nesta posição. 
+c) adulto, deficiente, pouco tempo nesta posição. 
+d) idoso, deficiente, muito tempo nesta posição.
+e) criança/adolescente, sem deficiência, pouco tempo nesta posição.				
+				</pre>						
+			</div>
+
+			<br>										
+			
+	        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/solucao2momento3.png" alt="Momento 3" title="Momento 3"/>
+					<figcaption ALIGN="center">Momento 3</figcaption>
+				</figure>
+			</div>			
+
+			<br>										
+
+			<div class="">
+				<pre>
+Terceira questão: 
+a) criança/adolescente, deficiente, muito tempo nesta posição. 
+b) idoso, sem deficiência, muito tempo nesta posição. 
+c) adulto, deficiente, muito tempo nesta posição. 
+d) adulto, sem deficiência, pouco tempo nesta posição. 
+e) idoso, deficiente, pouco tempo nesta posição. 				
+				</pre>						
+			</div>
+
+			<br>										
+			
+	        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/tabela_de_desempenho_e_tempo_gasto.png" alt="Tabela de Desempenho e Tempo Gasto" title="Tabela de Desempenho e Tempo Gasto"/>
+					<figcaption ALIGN="center">Tabela de Desempenho e Tempo Gasto</figcaption>
+				</figure>
+			</div>			
+
+			<br>										
+			
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/desempenho_dos_tres_momentos.png" alt="Desempenho dos Três Momentos" title="Desempenho dos Três Momentos"/>
+					<figcaption ALIGN="center">Desempenho dos Três Momentos</figcaption>
+				</figure>		
+			</div>
+			
+			<br>		
+			
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/desempenho_dos_tres_momentos.tiff" alt="Desempenho dos Três Momentos" title="Desempenho dos Três Momentos" width="1000"/>
+					<figcaption ALIGN="center">Desempenho dos Três Momentos</figcaption>
+				</figure>		
+			</div>
+
+			<br>		
+
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos_2.png" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos"/>
+					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
+				</figure>				
+			</div>
+
+			<br>				
+
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos_3.tiff" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos" width="1000"/>
+					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
+				</figure>				
+			</div>
+
+			<br>			
+			
+			<div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos.png" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos" width="1000"/>
+					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
+				</figure>			
+			</div>	
+
+			<h4>Questões Subjetivas</h4>			
+		
+			<div class="">
+				<pre>
+				</pre>						
+			</div>
+
+			<p align="justify">
+
+Nas questões subjetivas, objetivou-se coletar opiniões e demais impressões dos participantes. Para essas questões, foi feito uma entrevista gravada em áudio. A seguir, estão as perguntas feitas aos participantes:
+
+1. Você acha que é fácil o entendimento da representação visual?
+2. Você acha que é efetivo a representação visual para um contexto de salvamento?
+3. Você tem alguma sugestão referente a representação visual?
+			
+Dos 10 participantes 7 disseram que a
+representação visual da VisEm é de fácil entendimento. 9 participantes
+disseram que a representação visual é efetiva ao contexto de salvamento. Metade
+dos entrevistados disseram que o tamanho das figuras geométricas, as quais
+representam pessoas, é ruim ou relataram problemas com o tamanho na hora de
+identificar a faixa etária. A solução sugerida por eles foi alterar o tamanho
+das figuras, ou aumentar a discrepância entre os tamanhos. Um dos participantes sugeriu o uso
+de símbolos diferentes para cada faixa etária. Esta sugestão é a mais adequada, do ponto de vista técnico da visualização de informação. Pois, dado categórico, como a faixa etária, é melhor representado visualmente por meio da propriedade gráfica forma que a propriedade tamanho.            
+			</p>								
+		</div>	
+	</body>
+</html>
