@@ -84,50 +84,8 @@
 					<figcaption ALIGN="center">Simulação da VisEM</figcaption>
 				</figure>
 			</div>
-			<div class="wrapper">
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/simulacao_de_um_momento_real.png" alt="Simulação de um Momento Real" title="Simulação de um Momento Real"/>
-					<figcaption ALIGN="center">Simulação de um Momento Real</figcaption>
-				</figure>		
-			</div>
 
-			<br>				
-
-			<h4>Arquivo script.py utilizado para gerar dados de pessoas aleatoriamente:</h4>		
-			
-			<div class="">
-				<pre>
-					<code>
-#!/usr/bin/python
-import random
-
-
-list = "[\n"
-num = 0
-
-for i in range(1,50):
-	list = list + str("\t{\n"
-	+"\t\t\"idPerson\":"+ str(i) +",\n"
-	+"\t\t\"positionX\":"+ str("{0:.1f}".format(random.random()*15)) +",\n"
-	+"\t\t\"positionY\":"+ str("{0:.1f}".format(random.random()*9)) +",\n"
-	+"\t\t\"stationary\":"+ str("true" if i%2 == 0 else "false") +",\n"
-	+"\t\t\"age\":"+ str(int(random.random()*100)) +",\n"
-	+"\t\t\"disability\":"+ str("1" if i%2 == 0 else "0") +"\n"
-	+"\t}")
-
-	if(i+1 != 50):
-		list = list + str(",\n")
-
-
-list = list + "\n]"
-file = open("people2.json","w+")
-file.write(list)
-file.close()			
-					</code>
-				</pre>						
-			</div>
-			
-			<br>				
+			<br>								
 			
 			<h2 id="estudodeavaliacao">Estudo de Avaliacao</h2>
 
@@ -210,15 +168,6 @@ e) idoso, deficiente, pouco tempo nesta posição.
 
 			<br>										
 			
-	        <div class="wrapper"> 
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/tabela_de_desempenho_e_tempo_gasto.png" alt="Tabela de Desempenho e Tempo Gasto" title="Tabela de Desempenho e Tempo Gasto"/>
-					<figcaption ALIGN="center">Tabela de Desempenho e Tempo Gasto</figcaption>
-				</figure>
-			</div>			
-
-			<br>										
-			
 			<div class="wrapper">
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/desempenho_dos_tres_momentos.png" alt="Desempenho dos Três Momentos" title="Desempenho dos Três Momentos"/>
@@ -226,14 +175,6 @@ e) idoso, deficiente, pouco tempo nesta posição.
 				</figure>		
 			</div>
 			
-			<br>		
-			
-			<div class="wrapper">
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/desempenho_dos_tres_momentos.tiff" alt="Desempenho dos Três Momentos" title="Desempenho dos Três Momentos" width="1000"/>
-					<figcaption ALIGN="center">Desempenho dos Três Momentos</figcaption>
-				</figure>		
-			</div>
 
 			<br>		
 
@@ -245,22 +186,6 @@ e) idoso, deficiente, pouco tempo nesta posição.
 			</div>
 
 			<br>				
-
-			<div class="wrapper">
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos_3.tiff" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos" width="1000"/>
-					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
-				</figure>				
-			</div>
-
-			<br>			
-			
-			<div class="wrapper">
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos.png" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos" width="1000"/>
-					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
-				</figure>			
-			</div>	
 
 			<h4>Questões Subjetivas</h4>			
 		
