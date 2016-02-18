@@ -24,6 +24,7 @@
 			}
 			figcaption{
 				text-align: center;
+				font-weight: bold;
 			}
 			.wrapper{
 				width: 70%;
@@ -31,6 +32,7 @@
 			}
 
 		</style>
+		
 	</head>
 
 	<body>
@@ -39,7 +41,7 @@
 			
 			<br>
 			
-			<h4>Seções</h4>
+			<h3>Seções</h3>
 			
 			<ul>
 				<li>
@@ -58,54 +60,110 @@
             <h2 id="objetivo">Objetivo da VisEM</h2>
             
             <p align="justify">
-                Este trabalho apresenta uma solução visual, fornecida pela
-                aplicação VisEm, para gerenciamento de emergência em ambientes indoor. A VisEm faz parte do Sistema de Gerenciamento de Emergência para Ambientes Fechados (SGEAF),
-                o qual coleta, armazena e processa dados referentes a um
-                ambiente fechado e as pessoas contidas neste.
-
+                Este trabalho apresenta uma solução visual, fornecida pela aplicação VisEm, para gerenciamento de emergência em ambientes indoor. A VisEm faz parte do Sistema de Gerenciamento de Emergência para Ambientes Fechados (SGEAF), o qual coleta, armazena e processa dados referentes a um ambiente fechado e as pessoas contidas neste.
             </p>
             
             <h2 id="ferramenta">Ferramenta</h2>
             
-            <p></p>
+            <p align="justify">
+                A Figura 1 apresenta a visão geral da solução...
+            </p>
 	               
 	        <div class="wrapper"> 
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/visaoestrutural.png" alt="Visão Estrutural" title="Visão Estrutural"/>
-					<figcaption ALIGN="center">Visão Estrutural</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Visão Estrutural</figcaption>
 				</figure>
 			</div>
 			
-			<br>		
-
+			<br>	
+			
 			<div class="wrapper">
-				<figure class="figure" ALIGN="center">
-					<img src="imagens/simulacaoInicial.png" alt="Simulação da VisEM" title="Simulação da VisEM "/>
-					<figcaption ALIGN="center">Simulação da VisEM</figcaption>
-				</figure>
-			</div>
-
+                            <figure class="figure" align="center">
+                                <img src="imagens/tabela1.png" alt="tabela1" title="Tabela 1">
+                                <figcaption align="center">Tabela 1: Atributos visuais e reais utilizados.</figcaption>
+                            </figure>
+                        </div>
+			
+			<br/>
+			
+			<p align="justify">
+                            A VisEM utiliza círculos, triângulos, linhas e retângulos como elementos gráficos na elaboração das suas representações visuais. Das cinco propriedades gráficas citadas anteriormente, a VisEM utiliza as propriedades tamanho, cor e forma para representar pessoas de um ambiente fechado (conforme mapeamento apresentado na Tabela 1). A Figura  é uma representação visual da planta baixa de um ambiente fechado, produzida pela VisEM. As retas pretas representam as paredes internas e externas do ambiente monitorado. Os retângulos de cor verde representam saídas de emergência. Para representar pessoas imersas no ambiente monitorado, a VisEM utiliza os atributos visuais já apresentados.
+			</p>
+			
+			
+			<div class="wrapper">
+                            <figure class="figure" align="center">
+                                <img src="imagens/simulacaoInicial.png" alt="Simulação da VisEM" title="Simulação da VisEM ">
+                                <figcaption align="center">Figura <span></span>: Representação visual de um ambiente <i>indoor</i> monitorado pela VisEM</figcaption>
+                            </figure>
+                        </div>
+			
 			<br>								
 			
-			<h2 id="estudodeavaliacao">Estudo de Avaliacao</h2>
+			
+			<h4> Histórico de Posições </h4>
+			
+			<p align="justify"> 
+                            A VisEm disponibiliza históricos de posições das pessoas de um ambiente indoor. Para representar a posição mais atual de uma pessoa no histórico, é admitido pela VisEm somente uma figura geométrica colorida na representação de pessoas. As figuras geométricas, triângulos ou círculos, as quais estão entre as linhas vermelhas representam as posições intermediárias das pessoas, enquanto que as figuras geométricas que estão na ponta das linhas vermelhas representam a posição mais antiga ou mais atual de uma pessoa. As linhas vermelhas presentes na representação visual indica o movimento realizado pela pessoa monitorada.
+			</p>
+			<p align="justify">
+                            A Figura  é a representação visual de uma criança ou de um adolescente sem deficiência. Os círculos sem cor representam as posições que a criança esteve no ambiente indoor. O círculo vermelho é a posição mais atual da criança sem deficiência, indicando que ela está a pouco tempo naquela posição. 
+			</p>
+			
+			<br/>
+			
+                        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/historico_de_posicoes_1.png" alt="Momento 3" title="Historico 1"/>
+					<figcaption ALIGN="center">Figura <span></span>: Histórico de posições de uma criança ou adolescente sem deficiência.</figcaption>
+				</figure>
+			</div>	
+			
+                        <br>										
+			
+			<p align="justify">
+                            A Figura  representa o histórico de posições de um adolescente ou de uma criança deficiente. Os triângulos sem cor representam as posições que o adolescente esteve no ambiente fechado. O triângulo preto é a posição mais atual da pessoa e indica que o adolescente deficiente está muito tempo parado naquela posição. 
+			</p>
+			
+			<br/>
+			
+                        <div class="wrapper"> 
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/historico_de_posicoes_2.png" alt="Momento 3" title="Historico 2"/>
+					<figcaption ALIGN="center">Figura <span></span>: Histórico de posições de uma criança ou adolescente deficiente.</figcaption>
+				</figure>
+			</div>	
+			
+			<br>
+			
+            <h2 id="estudodeavaliacao">Estudo de Avaliação</h2>
 
             <p align="justify">
-O principal objetivo do estudo foi avaliar a eficácia dos recursos visuais utilizados na solução desenvolvida. Objetivos secundários foram definidos como analisar, compreender e propor correções nas representações visuais para uma maior aplicabilidade ao contexto emergencial.
+                O principal objetivo do estudo foi avaliar a eficácia dos recursos visuais utilizados na solução desenvolvida. Objetivos secundários foram definidos como analisar, compreender e propor correções nas representações visuais para uma maior aplicabilidade ao contexto emergencial.
             </p>
-
+			<p align="justify">
+                            A Figura  foi elaborada para auxiliar as pessoas a responderem as questões objetivas. A legenda explica os três atributos visuais utilizados pela VisEm para descrever pessoas.            
+			</p>
 			<div class="wrapper">
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/legenda.png" alt="Legenda" title="Legenda" width="1000"/>
-					<figcaption ALIGN="center">Legenda</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Legenda utilizada pelos participantes</figcaption>
 				</figure>			
 			</div>				
             
-			<br>				
+			<br>		
 			
-	        <div class="wrapper"> 
+			<p align="justify">
+                            As Figura [4,5,6] foram criadas para executar as questões objetivas deste estudo. Cada uma delas apresenta um momento diferente na representação visual. Foram criadas questões específicas para cada um desses momentos mostrados pela VisEM.       
+			</p>
+			
+			<br/>
+			
+			<div class="wrapper"> 
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/solucao2momento1.png" alt="Momento 1" title="Momento 1"/>
-					<figcaption ALIGN="center">Momento 1</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Momento 1</figcaption>
 				</figure>
 			</div>			
 
@@ -124,10 +182,10 @@ e) idoso, sem deficiência, muito tempo nesta posição.
 
 			<br>										
 						
-	        <div class="wrapper"> 
+                        <div class="wrapper"> 
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/solucao2momento2.png" alt="Momento 2" title="Momento 2"/>
-					<figcaption ALIGN="center">Momento 2</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Momento 2</figcaption>
 				</figure>
 			</div>			
 			
@@ -146,10 +204,10 @@ e) criança/adolescente, sem deficiência, pouco tempo nesta posição.
 
 			<br>										
 			
-	        <div class="wrapper"> 
+                        <div class="wrapper"> 
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/solucao2momento3.png" alt="Momento 3" title="Momento 3"/>
-					<figcaption ALIGN="center">Momento 3</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Momento 3</figcaption>
 				</figure>
 			</div>			
 
@@ -165,28 +223,59 @@ d) adulto, sem deficiência, pouco tempo nesta posição.
 e) idoso, deficiente, pouco tempo nesta posição. 				
 				</pre>						
 			</div>
-
-			<br>										
+			
+			<p align="justify">
+                            A Figura  apresenta os acertos totais dos participantes (em média) para todos os momentos (M1, M2, M3), além da média global. No geral, o número de acertos foi bastante alto, próximo de 100% para a maior parte dos casos. Isto mostra que, apesar de ser o primeiro contato do participante com a representação visual, ele foi capaz de entendê-la facilmente e executar as atividades que lhes foram requeridas. Os participantes P2, P7, P9 e P10 tiveram um desempenho de 100%. O participante P4 teve um desempenho diferente dos demais, chegando a ter um média negativa no Momento M1. Para os demais participantes, a média foi sempre superior a 60%. A média global de desempenho entre todos os participantes (incluindo o <i>outlier</i> P4) em todos o momentos foi de 84,78%.
+			</p>
 			
 			<div class="wrapper">
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/desempenho_dos_tres_momentos.png" alt="Desempenho dos Três Momentos" title="Desempenho dos Três Momentos"/>
-					<figcaption ALIGN="center">Desempenho dos Três Momentos</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Percentual de acerto dos participantes.</figcaption>
 				</figure>		
 			</div>
 			
 
 			<br>		
+			<p align="justify">
+			
+                            A Figura  apresenta o tempo total dos participantes (média em minutos) para todos os momentos (M1, M2, M3), e a média global. No geral, o tempo gasto pelos participantes foi baixo. Os participantes gastaram, no pior caso, menos de 5.6 minutos para responder todas as alternativas de um determinado momento. Isto aconteceu com P1, P2 e P10 em M1, e P7 em M3. O participante P9 destacou-se como o mais rápido, na média, entre os respondentes, com 1.3 minuto de média global. Este mesmo participante obteve um desempenho de 100%. Tal fato permite inferir que as representações visuais da VisEM poderão ser utilizadas em contextos no qual se deseja uma informação rápida e precisa, como é o caso de situações de emergência.
+                            O participante P2 teve o maior tempo gasto entre os participantes, com 4.6 minutos em média. 
+                            
+                            Observa-se ainda que a maioria dos
+                            participantes gastou mais tempo no Momento 1, foi mais rápido no Momento 2
+                            e aumentou seu tempo total no Momento 3. O tempo médio gasto no Momento 1 foi maior que
+                            no Momento 3. Esperava-se que o tempo fosse decrescendo do momento M1 para o M3, uma vez que o participante estivesse mais confortável com o uso da visualização. Entretanto, o Momento 2 teve, no geral, o menor tempo entre os participantes. Isto pode ter acontecido pelo fato deste cenário ser menos complexo ao processo cognitivo humano que os demais.
+                        </p>
 
 			<div class="wrapper">
 				<figure class="figure" ALIGN="center">
 					<img src="imagens/tempo_gasto_em_minutos_dos_tres_momentos_2.png" alt="Tempo Gasto em Minutos dos Três Momentos" title="Tempo Gasto em Minutos dos Três Momentos"/>
-					<figcaption ALIGN="center">Tempo Gasto em Minutos dos Três Momentos</figcaption>
+					<figcaption ALIGN="center">Figura <span></span>: Tempo gasto pelos participantes.</figcaption>
 				</figure>				
 			</div>
 
 			<br>				
+                        
+                        <h4>Nova Representação</h4>
+                        
+                        <p align="justify">
+                            A Figura  apresenta um exemplo da nova solução visual da VisEM para representar pessoas imersas em ambientes indoor. Apesar de ter sido construída levando em consideração o feedback
+                            dos participantes do estudo apresentado na seção
+                            anterior, não pode-se fazer inferência a respeito de sua efetividade,
+                            uma vez que esta nova representação visual não foi avaliada
+                            até então.
+                        </p>
+                        
+                        <div class="wrapper">
+				<figure class="figure" ALIGN="center">
+					<img src="imagens/simulacaoInicial.png" alt="Simulação da VisEM" title="Simulação da VisEM "/>
+					<figcaption ALIGN="center">Figura <span></span>: Nova representação visual da VisEM</figcaption>
+				</figure>
+			</div>
 
+			<br>
+                        
 			<h4>Questões Subjetivas</h4>			
 		
 			<div class="">
@@ -196,21 +285,39 @@ e) idoso, deficiente, pouco tempo nesta posição.
 
 			<p align="justify">
 
-Nas questões subjetivas, objetivou-se coletar opiniões e demais impressões dos participantes. Para essas questões, foi feito uma entrevista gravada em áudio. A seguir, estão as perguntas feitas aos participantes:
+                            Nas questões subjetivas, objetivou-se coletar opiniões e demais impressões dos participantes. Para essas questões, foi feito uma entrevista gravada em áudio. A seguir, estão as perguntas feitas aos participantes:
 
-1. Você acha que é fácil o entendimento da representação visual?
-2. Você acha que é efetivo a representação visual para um contexto de salvamento?
-3. Você tem alguma sugestão referente a representação visual?
+                            1. Você acha que é fácil o entendimento da representação visual?
+                            2. Você acha que é efetivo a representação visual para um contexto de salvamento?
+                            3. Você tem alguma sugestão referente a representação visual?
+                                                    
+                            Dos 10 participantes 7 disseram que a
+                            representação visual da VisEm é de fácil entendimento. 9 participantes
+                            disseram que a representação visual é efetiva ao contexto de salvamento. Metade
+                            dos entrevistados disseram que o tamanho das figuras geométricas, as quais
+                            representam pessoas, é ruim ou relataram problemas com o tamanho na hora de
+                            identificar a faixa etária. A solução sugerida por eles foi alterar o tamanho
+                            das figuras, ou aumentar a discrepância entre os tamanhos. Um dos participantes sugeriu o uso
+                            de símbolos diferentes para cada faixa etária. Esta sugestão é a mais adequada, do ponto de vista técnico da visualização de informação. Pois, dado categórico, como a faixa etária, é melhor representado visualmente por meio da propriedade gráfica forma que a propriedade tamanho.            
+			</p>	
 			
-Dos 10 participantes 7 disseram que a
-representação visual da VisEm é de fácil entendimento. 9 participantes
-disseram que a representação visual é efetiva ao contexto de salvamento. Metade
-dos entrevistados disseram que o tamanho das figuras geométricas, as quais
-representam pessoas, é ruim ou relataram problemas com o tamanho na hora de
-identificar a faixa etária. A solução sugerida por eles foi alterar o tamanho
-das figuras, ou aumentar a discrepância entre os tamanhos. Um dos participantes sugeriu o uso
-de símbolos diferentes para cada faixa etária. Esta sugestão é a mais adequada, do ponto de vista técnico da visualização de informação. Pois, dado categórico, como a faixa etária, é melhor representado visualmente por meio da propriedade gráfica forma que a propriedade tamanho.            
-			</p>								
+			<h4>Anexos</h4>
+			<a href="arquivos/experimento-dados-analise-visem.xlsx"> Dados do experimento</a>
+			
+			<script type="text/javascript">
+		
+                            function getNumber(){
+                                var element = document.getElementsByTagName('figcaption');
+                                
+                                for(var i = 0; i < element.length; i++){
+                                    element[i].getElementsByTagName('span').innerHTML = "Hello";//i+1;
+                                }
+                            }
+                            
+                            getNumber();
+                            
+                        </script>
+			<div></div>
 		</div>	
 	</body>
 </html>
