@@ -1,0 +1,288 @@
+{
+    "name": "GSORT",
+    "type": "building",
+    "totalWidth": 15.62,
+    "totalHeight": 9.92,
+    "children": 
+    [
+        {
+            "name": "Saleta Coordenação", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 0.20, "y": 7.95},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 0.20, "y": 7.95},
+                    "finalPoint": {"name": "B", "x": 0.20, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 0, "y": 8.17},
+                    "finalPoint": {"name": "B", "x": 0.20, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 0, "y": 8.17},
+                    "finalPoint": {"name": "B", "x": 0, "y": 9.37}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 0, "y": 9.37},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 9.37}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 9.92},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 8.82}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 8.82},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "name": "Ante-sala", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 0},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 1.90}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 1.90},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 4.32, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 5.19, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 0},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 0},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 0}
+                }
+            ]
+        },
+        {
+            "name": "Coordenação de ADS", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 4.32, "y": 2.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 4.32, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 5.19, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 5.19, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 9.92},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 9.92},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 8.82}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 8.82},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 2.30, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 2.30, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "name": "Recepção", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 2.40}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 0.88},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 1.64}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 1.64},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 0},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 0},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 0},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 1.19}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 1.19},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 2.04}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 2.04},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 10.06, "y": 2.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 10.06, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 2.77}
+                }
+            ]
+        },
+        {
+            "name": "Sala dos Professores", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 10.06, "y": 2.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 10.06, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 2.77},
+                    "finalPoint": {"name": "B", "x": 6.86, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 6.86, "y": 9.92},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Laboratório", 
+            "type": "room",            
+            "totalWidth": 4.70,
+            "totalHeight": 9.92,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 0},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 1.19}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 1.19},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 2.04}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 2.04},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 2.04},
+                    "finalPoint": {"name": "B", "x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 9.92},
+                    "finalPoint": {"name": "B", "x": 15.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 15.62, "y": 0},
+                    "finalPoint": {"name": "B", "x": 15.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"name": "A", "x": 10.92, "y": 0},
+                    "finalPoint": {"name": "B", "x": 15.62, "y": 0}
+                }
+            ]
+        }
+    ]    
+}

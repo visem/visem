@@ -1,0 +1,154 @@
+{% load staticfiles %}
+<html>
+    <head>        
+        <title>VisIndoor | GSORT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.-->
+        <meta http-equiv="refresh" content="60">
+        
+        <!-- Load the Paper.js library -->
+        <script type="text/javascript" src="{% static "libraries/paper.js" %}"></script>
+
+        <!-- Load external PaperScript and associate it with visemCanvas -->
+        <script type="text/paperscript" src="{% static "moduleJavaScript/gsortPlantDesigner.js" %}" data-paper-canvas="visemCanvas"></script> 
+
+        <!-- Load external PaperScript and associate it with visemCanvas -->
+        <script type="text/paperscript" src="{% static "moduleJavaScript/peopleDesigner.js" %}" data-paper-canvas="visemCanvas"></script>
+
+        <!-- Load the JQuery.js library -->
+        <script type="text/javascript" src="{% static 'libraries/jquery-2.1.3.js' %}"></script>
+
+        <!-- Load the heatmap.js library -->
+        <script type="text/javascript" src="{% static 'js/heatmap.js' %}"></script>
+        
+		<script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
+
+
+		<script type="text/javascript" src="{% static 'js/visem.js' %}"></script>
+
+	    <style type="text/css">
+
+	    	.wrapper{
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				min-width: 100px;
+				height: 100%;
+				min-height: 200px;
+				position: fixed;
+			}
+
+	    </style>
+    </head>
+    <body>
+        <!-- This div will be the header -->
+        <div class="navigator"></div> <!-- -->
+        <div class="wrapper" id="wrapper">
+            <canvas id="visemCanvas" data-paper-canvas="true" data-paper-resize="true" ></canvas>        
+        </div>
+        <div id="textualInformation"></div>
+    </body>
+
+    <script type="text/javascript">
+
+    	var heatInstance = h337.create({
+    		container: document.getElementById('wrapper')
+    	});
+
+    	//get canvas initial position
+    	var myElement = document.querySelector("#visemCanvas"); 
+		var position = getPosition(myElement);
+		
+
+    	//getdata
+    	var xmlhttp = new XMLHttpRequest();
+		var url = "/static/jsons/people3.json";
+		var self = this;
+
+		var dataset = [];
+		
+		xmlhttp.onreadystatechange = function() {	
+		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+		    	dataset = prepareData(JSON.parse(xmlhttp.responseText));
+
+		    	console.log(dataset);
+		    	var data = {
+					max: 100,
+					min: 0,
+					data: dataset
+				}
+
+				heatInstance.setData(data);	
+		    }
+		}
+
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+
+		function prepareData(object) {
+			var preparedData = [];
+
+			/*
+				[{ x: 0, y: 0, value 0	}];
+			*/
+
+			for(var i=0; i < object.length; i++){   
+				var point = {
+					x: object[i].positionX * 75, 
+					y: object[i].positionY * 75,
+					value: Math.floor(Math.random()*100)
+				};	
+				preparedData.push(point);
+		    }
+
+		    console.log(preparedData);
+
+			return preparedData;
+		}
+
+		
+
+		console.log(dataset);
+    	//set data to heatmap canvas
+
+	    //TODO track canvas elements to page coordinates.
+
+	    // Helper function to get an element's exact position
+		function getPosition(el) {
+		  var xPos = 0;
+		  var yPos = 0;
+		 
+		  while (el) {
+		    if (el.tagName == "BODY") {
+		      // deal with browser quirks with body/window/document and page scroll
+		      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+		      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+		 
+		      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+		      yPos += (el.offsetTop - yScroll + el.clientTop);
+		    } else {
+		      // for all other non-BODY elements
+		      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+		      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+		    }
+		 
+		    el = el.offsetParent;
+		  }
+		  return {
+		    x: xPos,
+		    y: yPos
+		  };
+		}
+		 
+		// deal with the page getting resized or scrolled
+		window.addEventListener("scroll", updatePosition, false);
+		window.addEventListener("resize", updatePosition, false);
+		 
+		function updatePosition() {
+		  // add your code to update the position when your browser
+		  // is resized or scrolled
+		}
+
+    </script>
+</html>

@@ -1,0 +1,112 @@
+[
+    {
+        "type": "dimension",
+        "totalWidth": 8.8,
+        "totalHeight": 6.3
+    },    
+    {
+        "type": "wall",
+        "initialPoint": {"name": "A", "x": 0, "y": 0.3},
+        "finalPoint": {"name": "B", "x": 0, "y": 3.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "A", "x": 0, "y": 0.3},
+        "finalPoint": {"name": "C", "x": 2.5, "y": 0.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "C", "x": 2.5, "y": 0.3},
+        "finalPoint": {"name": "D", "x": 2.5, "y": 2.2}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "B", "x": 0, "y": 3.3},
+        "finalPoint": {"name": "I", "x": 2.15, "y": 3.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "E", "x": 2.5, "y": 0},
+        "finalPoint": {"name": "D", "x": 2.5, "y": 2.2}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "E", "x": 2.5, "y": 0},
+        "finalPoint": {"name": "F", "x": 3.7, "y": 0}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "F", "x": 3.7, "y": 0},
+        "finalPoint": {"name": "H", "x": 3.7, "y": 2.2}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "G", "x": 3.7, "y": 0.3},
+        "finalPoint": {"name": "N", "x": 6.2, "y": 0.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "N", "x": 6.2, "y": 0.3},
+        "finalPoint": {"name": "O", "x": 6.2, "y": 3.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "M", "x": 4.15, "y": 3.3},
+        "finalPoint": {"name": "O", "x": 6.2, "y": 3.3}
+    },    
+    {
+        "type": "wall",
+        "initialPoint": {"name": "N", "x": 6.2, "y": 0.3},
+        "finalPoint": {"name": "P", "x": 8.6, "y": 0.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "P", "x": 8.6, "y": 0.3},
+        "finalPoint": {"name": "Q", "x": 8.6, "y": 3.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "Q", "x": 8.6, "y": 3.3},
+        "finalPoint": {"name": "R", "x": 7.8, "y": 3.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "R", "x": 7.8, "y": 3.3},
+        "finalPoint": {"name": "S", "x": 7.8, "y": 6.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "B", "x": 0, "y": 3.3},
+        "finalPoint": {"name": "K", "x": 0, "y": 6.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "K", "x": 0, "y": 6.3},
+        "finalPoint": {"name": "L", "x": 3.15, "y": 6.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "J", "x": 3.15, "y": 3.3},
+        "finalPoint": {"name": "L", "x": 3.15, "y": 6.3}
+    },
+    {
+        "type": "wall",
+        "initialPoint": {"name": "L", "x": 3.15, "y": 6.3},
+        "finalPoint": {"name": "S", "x": 7.8, "y": 6.3}
+    },
+    {
+        "type": "emergencyExit",
+        "initialPoint": {"name": "T", "x": 1, "y": 0.25},
+        "finalPoint": {"name": "U", "x": 2, "y": 0.35}
+    },
+    {
+        "type": "emergencyExit",
+        "initialPoint": {"name": "V", "x": 2, "y": 6.25},
+        "finalPoint": {"name": "X", "x": 3, "y": 6.35}
+    },
+    {
+        "type": "emergencyExit",
+        "initialPoint": {"name": "W", "x": 8.55, "y": 2},
+        "finalPoint": {"name": "Y", "x": 8.65, "y": 3}
+    }
+]

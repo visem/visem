@@ -1,0 +1,2 @@
+var VISEM = VISEM || {};
+

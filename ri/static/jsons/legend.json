@@ -1,0 +1,98 @@
+[
+	{
+		"idPerson": 1,
+		"positionX":2.7,
+		"positionY":1.5,		
+		"stationary":true,
+		"age":2,
+		"disability":0
+     },
+    {			
+		"idPerson": 2,
+		"positionX":3.6,
+		"positionY":1.53,
+		"stationary":true,		
+		"age":15,
+		"disability":1
+     },
+    {		
+		"idPerson": 3,
+		"positionX":3,
+		"positionY":1.5,
+		"stationary":false,	 
+		"age":10,
+		"disability":0
+     },
+    {
+		"idPerson": 4,
+		"positionX":3.9,
+		"positionY":1.53,
+		"stationary":false,		
+		"age":16,
+		"disability":1
+     },
+    {
+		"idPerson": 5,
+		"positionX":2.7,
+		"positionY":3.3,
+    	"stationary":true,
+		"age":72,
+		"disability":0
+     },
+    {
+		"idPerson": 6,
+		"positionX":3.63,
+		"positionY":3.31,
+		"stationary":true,
+		"age":63,
+		"disability":1
+     },
+    {
+		"idPerson": 7,
+		"positionX":2.86,
+		"positionY":3.3,
+		"stationary":false,
+		"age":80,
+		"disability":0
+     },
+    {	
+		"idPerson": 8,	
+		"positionX":3.83,
+		"positionY":3.31,
+		"stationary":false,
+		"age":74,
+		"disability":1
+     },
+    {
+		"idPerson": 9,
+		"positionX":2.7,
+		"positionY":4.9,
+		"stationary":true,
+		"age":33,
+		"disability":0
+     },
+    {
+		"idPerson": 10,
+		"positionX":3.63,
+		"positionY":4.9,
+		"stationary":true,
+		"age":21,
+		"disability":1
+     },
+    {
+		"idPerson": 11,
+		"positionX":2.78,
+		"positionY":4.9,
+		"stationary":false,
+		"age":45,
+		"disability":0
+     },
+    {		
+		"idPerson": 11,
+		"positionX":3.76,
+		"positionY":4.9,
+		"stationary":false,
+		"age":50,
+		"disability":1
+     }     
+]
