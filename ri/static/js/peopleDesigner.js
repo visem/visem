@@ -2,7 +2,7 @@
 var xmlhttp = new XMLHttpRequest();
 var url = "/static/jsons/people3.json"; //legend.json	/	people.json	/	solution2moment1.json	/	solution2moment2.json	/	solution2moment3.json
 
-xmlhttp.onreadystatechange = function() {	
+/*xmlhttp.onreadystatechange = function() {	
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
         var objectArray = JSON.parse(xmlhttp.responseText);        		
         peopleDesigner(objectArray);
@@ -10,14 +10,20 @@ xmlhttp.onreadystatechange = function() {
 }
 
 xmlhttp.open("GET", url, true);
-xmlhttp.send();
+xmlhttp.send();*/
+
+
 
 //It unites the objects of objectArray to the method that create the people in the view:
 function peopleDesigner(objectArray) {	
     for(var i=0; i < objectArray.length; i++){        
 		createPersonInView(objectArray[i]);		
     }
+
+    paper.project.view.update();
 }
+
+getResource(url, "get", peopleDesigner);
 
 //It's create an person in view:
 function createPersonInView(object) {
@@ -52,19 +58,21 @@ function createPersonInView(object) {
     }                    
 
     //While the mouse is moved up the person:
-    person.onMouseMove = function(event) {
+    /*person.onMouseMove = function(event) {
         console.log(object);
+        
         $("#textualInformation").html("idPerson :" + object.idPerson + " positionX :" + object.positionX + " positionY :" + object.positionY + " stationary :" + object.stationary + " age :" + object.age + " disability :" + object.disability);
-    };
+    };*/
     
-    /*
     //When the mouse is pressed up the person:
-    person.onMouseDown = function(event) {
-        $.post("personIdStorer.php", {"idPerson": object.idPerson})
+    //person.onMouseDown = function(event) {
+     /* $.post("personIdStorer.php", {"idPerson": object.idPerson})
 			.done(function(result){                    
 			});
         $('#'+ 'visemCanvas').after("<a href=" + "personHistoricView.php" + ">View Historic</a>");
-    };*/        
+     */
+    //};/**/        
+
 }
 
 //It indicates the color of the person as black or red:

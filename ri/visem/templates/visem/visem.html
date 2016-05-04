@@ -4,22 +4,22 @@
         <title>VisIndoor | GSORT</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.-->
-        <meta http-equiv="refresh" content="60">
+        <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.
+        <meta http-equiv="refresh" content="60">-->
         
         <!-- Load the Paper.js library -->
-        <script type="text/javascript" src="{% static "libraries/paper.js" %}"></script>
-
-        <!-- Load external PaperScript and associate it with visemCanvas -->
-        <script type="text/paperscript" src="{% static "moduleJavaScript/gsortPlantDesigner.js" %}" data-paper-canvas="visemCanvas"></script> 
-
-        <!-- Load external PaperScript and associate it with visemCanvas -->
-        <script type="text/paperscript" src="{% static "moduleJavaScript/peopleDesigner.js" %}" data-paper-canvas="visemCanvas"></script>
+        <script type="text/javascript" src="{% static 'libraries/paper.js' %}"></script>
 
         <!-- Load the JQuery.js library -->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.1.3.js' %}"></script>
 
-		<script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
+        <!-- Load external PaperScript and associate it with visemCanvas -->
+        <script type="text/paperscript" src="{% static 'js/gsortPlantDesigner.js' %}" data-paper-canvas="visemCanvas"></script> 
+
+        <!-- Load external PaperScript and associate it with visemCanvas -->
+        <script type="text/paperscript" src="{% static 'js/peopleDesigner.js' %}" data-paper-canvas="visemCanvas"></script>
+
+        <script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
 
 	    <style type="text/css">
 
