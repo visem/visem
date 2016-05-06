@@ -5,26 +5,25 @@ VISEM.Main = (function() {
 	paper.install(window);
 	window.onload = function() {
 
+		var plantFile = "";
+		var peopleFile = "";
+		
 		canvas = document.getElementById('visemCanvas');
 		paper.setup(canvas);
-
-		//get People
 
 		draw();
 	};
 
 	this.draw = function(event) {
-		path = new Path();
-		path.strokeColor = 'red';
 
-		path.add(event.point);
-
-		drawPeople();
+		getResource()
 	};
 
-	this.drawPeople = function() {
-		//getResource()
-		
-	}
+	var initPlant = function(data){
+
+		if (data.type === "building") {
+			this.plant = new VISEM.Plant(data.name, data.type, data.width, data.height, data.children);
+		};
+	};
 
 })();
