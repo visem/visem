@@ -1,6 +1,6 @@
 var VISEM = VISEM || {};
 
-VISEM.Person = function(id,posX, posY, age, stationary, disability){
+VISEM.Person = function(id,posX, posY, age, stationary, disability, ratio){
 	this.path = new Path();
 	this.idPerson = id;
 	this.positionX  = posX;
@@ -8,19 +8,19 @@ VISEM.Person = function(id,posX, posY, age, stationary, disability){
 	this.stationary = stationary;
 	this.age = age;
 	this.disability = disability;
+	this.ratio = ratio;
+};
 
-	//While the mouse is moved up the person:
-    this.path.onMouseMove = function(event) {
-        
-        $("#textualInformation").html("idPerson :" + this.idPerson + 
-        							  " positionX :" + this.positionX + 
-        							  " positionY :" + this.positionY + 
-        							  " stationary :" + this.stationary + 
-        							  " age :" + this.age + 
-        							  " disability :" + this.disability);
-    };
-
-} 
+//While the mouse is moved up the person:
+this.path.onMouseMove = function(event) {
+    
+    $("#textualInformation").html("idPerson :" + this.idPerson + 
+    							  " positionX :" + this.positionX + 
+    							  " positionY :" + this.positionY + 
+    							  " stationary :" + this.stationary + 
+    							  " age :" + this.age + 
+    							  " disability :" + this.disability);
+};
 
 VISEM.Person.prototype.draw = function() {
 	var color = stationary();
@@ -52,12 +52,8 @@ VISEM.Person.prototype.draw = function() {
         
 };
 
-VISEM.Person.prototype.method_name = function(first_argument) {
-	// body...
-};
-
 //It indicates the color of the person as black or red:
-function stationary(object) {
+VISEM.Person.prototype.stationary = function(object) {
 	if(object.stationary === true){		
 		return 'black';    
 	} else {		

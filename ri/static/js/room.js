@@ -3,9 +3,9 @@ var VISEM = VISEM || {};
 VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	this.path = new Path();
 	this.name = name;
-	this.type = room;
-	this.totalWidth = ;
-	this.totalHeight = ;
+	this.type = type;
+	this.totalWidth = totalWidth;
+	this.totalHeight = totalHeight;
 	this.children = children;
 	this.ratio = ratio;
 
@@ -14,8 +14,8 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 			
 			var object = new Path();
 
-			if(this.children[i].type === "room"){
-				object = createDoorInView(this.children[i]);
+			if(this.children[i].type === "wall"){
+				object = createWallInView(this.children[i]);
 			}
 			else if(this.children[i].type === "door"){
 				object = createDoorInView(this.children[i]);
@@ -28,7 +28,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 		};
 	}
 
-	var createDoorInView = function (object){
+	var createWallInView = function (object){
 		
 		var wall = new Path();
 	    wall.strokeColor = 'black';

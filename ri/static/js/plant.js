@@ -14,20 +14,20 @@ VISEM.Plant = function (name, type, width, height, children) {
     this.children = children;
 };
 
-VISEM.Plant.prototype.init = function(canvasWrapper, canvas) {
+VISEM.Plant.prototype.init = function(canvasWrapper) {
 
-    this.width = canvasWrapper.clientWidth - this.clearance;
-    this.largerSide = diagonal(this.width, this.height);
-    this.ratio = getRatio(this.width, largerSide);
+    var canvasWidth = wrapper.clientWidth;
+    this.largerSide = this.diagonal(this.width, this.height);
+    this.ratio = this.getRatio(canvasWidth, this.largerSide);
 
 
     for (var i = 0; i < this.children.length; i++) {
        var room = new VISEM.Room(
-            this.children.name,
-            this.children.type,
-            this.children.totalWidth,
-            this.children.totalHeight,
-            this.children.children,
+            this.children[i].name,
+            this.children[i].type,
+            this.children[i].totalWidth,
+            this.children[i].totalHeight,
+            this.children[i].children,
             this.ratio
         );
 
@@ -36,7 +36,10 @@ VISEM.Plant.prototype.init = function(canvasWrapper, canvas) {
 };
 
 VISEM.Plant.prototype.draw = function() {
-    this.rooms.draw();
+    for (var i = 0; i < this.rooms.length; i++) {
+        this.rooms[i].draw();
+        console.log(this.rooms[i]);
+    };
 };
 
 VISEM.Plant.prototype.getRatio = function(canvasWidth, largerSide) {
@@ -44,8 +47,7 @@ VISEM.Plant.prototype.getRatio = function(canvasWidth, largerSide) {
 };
 
 VISEM.Plant.prototype.diagonal = function (width, height){
-    var diagonal = Math.pow(width,2) + Math.pow(height,2); 
-    return Math.sqrt(diagonal);
+    return Math.sqrt(Math.pow(width,2) + Math.pow(height,2));
 };
 
 VISEM.Plant.prototype.addRoom = function(room) {
