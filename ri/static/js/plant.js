@@ -20,7 +20,6 @@ VISEM.Plant.prototype.init = function(canvasWrapper) {
     this.largerSide = this.diagonal(this.width, this.height);
     this.ratio = this.getRatio(canvasWidth, this.largerSide);
 
-
     for (var i = 0; i < this.children.length; i++) {
        var room = new VISEM.Room(
             this.children[i].name,
@@ -38,7 +37,6 @@ VISEM.Plant.prototype.init = function(canvasWrapper) {
 VISEM.Plant.prototype.draw = function() {
     for (var i = 0; i < this.rooms.length; i++) {
         this.rooms[i].draw();
-        console.log(this.rooms[i]);
     };
 };
 

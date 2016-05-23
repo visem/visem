@@ -7,9 +7,9 @@ VISEM.Main = (function() {
 	var canvasWrapper = document.getElementById('wrapper');
 	paper.setup(canvas);
 	var plantFile = "/static/jsons/gsortPlant.json";
-	var peopleFile = "/static/jsons/gsortPlant.json";
+	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
-	//var people = new VISEM.Person();
+	var people = new Array();
 
 	window.onload = function() {
 		draw();
@@ -17,10 +17,17 @@ VISEM.Main = (function() {
 
 	this.draw = function(event) {
 		getResource("GET", plantFile, initPlant);
-		//getResource("GET", plantFile, initPeople);
+		
 
 		plant.init(canvasWrapper);
 		plant.draw();
+
+		getResource("GET", peopleFile, initPeople);
+		for (var i = 0; i < people.length; i++) {
+			people[i].draw();
+		};
+
+		paper.project.view.update();
 	};
 
 	var initPlant = function(data){
@@ -30,7 +37,9 @@ VISEM.Main = (function() {
 	};
 
 	var initPeople = function(data){
-		//people = new VISEM.Person();
+		for (var i = 0; i < data.length; i++) {
+			people.push(new VISEM.Person(data[i].idPerson, data[i].positionX, data[i].positionY, data[i].age, data[i].stationary, data[i].disability, plant.ratio)); 
+		};
 	};
 
 })();
