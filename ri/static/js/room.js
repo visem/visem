@@ -8,11 +8,16 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	this.totalHeight = totalHeight;
 	this.children = children;
 	this.ratio = ratio;
+	this.initialPoint = {x: 0, y: 0};
+	this.finalPoint = {x: 0, y: 0};
 
 	this.draw = function() {
 		for (var i = this.children.length - 1; i >= 0; i--) {
 			
 			var object = new Path();
+			
+			this.initialPoint = lowerPoint(this.initialPoint, this.children[i].initialPoint);
+			this.finalPoint = greaterPoint(this.finalPoint, this.children[i].finalPoint);
 
 			if(this.children[i].type === "wall"){
 				object = createWallInView(this.children[i]);
@@ -21,14 +26,15 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 				object = createDoorInView(this.children[i]);
 			}
 			else {
-				object = createEmergencyExitInView(this.children[i]);	
+				object = createEmergencyExitInView(this.children[i]);
 			}
 			
 		    this.path.add(object);
 		};
+
 		this.path.closed = true;
 		this.path.fillColor = 'green';
-		console.log(this.path);
+		console.log(this);
 	}
 
 	var createWallInView = function (object){
@@ -70,4 +76,12 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	this.path.onMouseDown = function(event){
 		console.log(this.name);
 	};
+
+	var greaterPoint = function(pointA, pointB){
+		return pointA > pointB ? pointA : pointB;
+	}
+
+	var lowerPoint = function(pointA, pointB){
+		return pointA < pointB ? pointA : pointB;
+	}
 };
