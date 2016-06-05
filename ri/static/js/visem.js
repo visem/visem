@@ -11,6 +11,9 @@ VISEM.Main = (function() {
 	var plant = new VISEM.Plant();
 	var people = new Array();
 
+	//Heatmap instance
+	var heatInstance = h337.create({container: canvasWrapper});
+
 	window.onload = function() {
 		draw();
 	};
@@ -27,6 +30,8 @@ VISEM.Main = (function() {
 			people[i].draw();
 		};
 
+		getResource("GET", peopleFile, initHeatMap);
+
 		paper.project.view.update();
 	};
 
@@ -40,6 +45,39 @@ VISEM.Main = (function() {
 		for (var i = 0; i < data.length; i++) {
 			people.push(new VISEM.Person(data[i].idPerson, data[i].positionX, data[i].positionY, data[i].age, data[i].stationary, data[i].disability, plant.ratio)); 
 		};
+	};
+
+	var initHeatMap = function(data){
+				
+    	var dataset = prepareData(data);
+
+    	var dataPoints = {
+			max: 100,
+			min: 0,
+			data: dataset
+		};
+
+		heatInstance.setData(dataPoints);
+		console.log(heatInstance);
+	};
+
+	var prepareData = function(object){
+		var preparedData = new Array();
+
+		/*
+			[{ x: 0, y: 0, value 0	}];
+		*/
+
+		for(var i=0; i < object.length; i++){   
+			var point = {
+				x: object[i].positionX * Math.floor(plant.ratio), 
+				y: object[i].positionY * Math.floor(plant.ratio),
+				value:  Math.floor(Math.random()*100)
+			};	
+			preparedData.push(point);
+	    }
+
+		return preparedData;
 	};
 
 })();
