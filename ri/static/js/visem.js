@@ -10,12 +10,15 @@ VISEM.Main = (function() {
 	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
 	var people = new Array();
+	var peopleData;
 
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
 
 	window.onload = function() {
 		draw();
+
+		countPeople(plant.rooms, people);
 	};
 
 	this.draw = function(event) {
@@ -80,4 +83,28 @@ VISEM.Main = (function() {
 		return preparedData;
 	};
 
+	function countPeople(room, people) {
+		for (var i = 0; i < room.length; i++) {
+			var counter = 0;
+			for (var j = 0; j < people.length; j++) {
+
+				var point = new Point(people[j].positionX, people[j].positionY);
+				
+				if (isInside(point,room[i])) {
+					counter++;
+					console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
+				};
+			};
+		};
+	};
+
+	function isInside(point, room){
+		if (((point.x >= room.initialPoint.x) && (point.x <= room.finalPoint.x)) && ((point.y >= room.initialPoint.y) && (point.y <= room.finalPoint.y)))
+			return true;
+		return false;
+	};
+
+	function euclideanDistance(a, b) {	
+		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
+	}
 })();

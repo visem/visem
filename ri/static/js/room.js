@@ -8,11 +8,11 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	this.totalHeight = totalHeight;
 	this.children = children;
 	this.ratio = ratio;
-	this.initialPoint = {x: 0, y: 0};
-	this.finalPoint = {x: 0, y: 0};
+	this.initialPoint = this.children[0].initialPoint;
+	this.finalPoint = this.children[0].finalPoint;
 
 	this.draw = function() {
-		for (var i = this.children.length - 1; i >= 0; i--) {
+		for (var i = 0; i < this.children.length; i++) {
 			
 			var object = new Path();
 			
@@ -78,10 +78,10 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	};
 
 	var greaterPoint = function(pointA, pointB){
-		return pointA > pointB ? pointA : pointB;
+		return Point.max(pointA, pointB);
 	}
 
 	var lowerPoint = function(pointA, pointB){
-		return pointA < pointB ? pointA : pointB;
+		return Point.min(pointA, pointB);
 	}
 };
