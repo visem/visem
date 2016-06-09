@@ -10,6 +10,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	this.ratio = ratio;
 	this.initialPoint = this.children[0].initialPoint;
 	this.finalPoint = this.children[0].finalPoint;
+	this.peopleCounter = 0;
 
 	this.draw = function() {
 		for (var i = 0; i < this.children.length; i++) {

@@ -10,7 +10,6 @@ VISEM.Main = (function() {
 	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
 	var people = new Array();
-	var peopleData;
 
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
@@ -95,6 +94,7 @@ VISEM.Main = (function() {
 					console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
 				};
 			};
+			room[i].peopleCounter = counter;
 		};
 	};
 
