@@ -7,33 +7,39 @@ VISEM.Main = (function() {
 	var canvasWrapper = document.getElementById('wrapper');
 	paper.setup(canvas);
 	var plantFile = "/static/jsons/gsortPlant.json";
+	var number = Math.round(Math.random()*10);
 	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
 	var people = new Array();
-
+	// var slicer = new VISEM.Slicer("vertical", 300);
+	// slicer.init();
+//	console.log(slicer);
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
 
 	window.onload = function() {
 		draw();
 
-		countPeople(plant.rooms, people);
+		//countPeople(plant.rooms, people);
+		
 	};
 
 	this.draw = function(event) {
 		getResource("GET", plantFile, initPlant);
 		
-
 		plant.init(canvasWrapper);
 		plant.draw();
 
 		getResource("GET", peopleFile, initPeople);
+		
 		for (var i = 0; i < people.length; i++) {
 			people[i].draw();
 		};
+		
+		countPeople(plant.rooms, people);
 
-		getResource("GET", peopleFile, initHeatMap);
-
+		//getResource("GET", plantFile, initHeatMap);
+		initHeatMap(plant);
 		paper.project.view.update();
 	};
 
@@ -52,9 +58,9 @@ VISEM.Main = (function() {
 	var initHeatMap = function(data){
 				
     	var dataset = prepareData(data);
-
+		//console.log(data);
     	var dataPoints = {
-			max: 100,
+			max: people.length * 100,
 			min: 0,
 			data: dataset
 		};
@@ -66,19 +72,38 @@ VISEM.Main = (function() {
 	var prepareData = function(object){
 		var preparedData = new Array();
 
+		//console.log("Planta: ",object);
 		/*
 			[{ x: 0, y: 0, value 0	}];
 		*/
-
-		for(var i=0; i < object.length; i++){   
+		// debugger;
+		// for(var i=0; i < object.length; i++){   
+		// 	var point = {
+		// 		x: object[i].positionX * Math.floor(plant.ratio), 
+		// 		y: object[i].positionY * Math.floor(plant.ratio),
+		// 		value:  Math.floor(Math.random()*100)
+		// 	};	
+		// 	preparedData.push(point);
+	 //   }
+		var number = object.children.length;
+		var data = object.rooms;
+		for (var i = 0; i < number; i++) {
+			var pt = {
+				x: Math.round(((data[i].totalWidth * data[i].totalHeight)/2) + data[i].initialPoint.x),
+				y: Math.round(((data[i].totalWidth * data[i].totalHeight)/2) + data[i].initialPoint.y)
+			};
+			console.log(((data[i].totalWidth * data[i].totalHeight)/2)+ data[i].initialPoint.x);
 			var point = {
-				x: object[i].positionX * Math.floor(plant.ratio), 
-				y: object[i].positionY * Math.floor(plant.ratio),
-				value:  Math.floor(Math.random()*100)
+		 	//   	x: Math.round(data[i].finalPoint.x) * Math.round(plant.ratio), 
+				// y: Math.round(data[i].finalPoint.y) * Math.round(plant.ratio),
+				x: pt.x * Math.round(plant.ratio), 
+				y: pt.y * Math.round(plant.ratio),
+				value: data[i].peopleCounter * 200
 			};	
+			console.log(point.x, point.y);
 			preparedData.push(point);
-	    }
-
+		}
+		
 		return preparedData;
 	};
 
@@ -91,7 +116,7 @@ VISEM.Main = (function() {
 				
 				if (isInside(point,room[i])) {
 					counter++;
-					console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
+					//console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
 				};
 			};
 			room[i].peopleCounter = counter;
@@ -107,4 +132,5 @@ VISEM.Main = (function() {
 	function euclideanDistance(a, b) {	
 		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
 	}
+
 })();
