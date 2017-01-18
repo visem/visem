@@ -19,3 +19,27 @@ def heatmap(request):
 
 def visem(request):
 	return render(request, 'visem/visem.html',{})
+
+	
+def slice_details(request, slice_id):
+    slice = get_object_or_404(Slice, pk=slice_id)
+    return render(request, 'visem/slicedetails.html', {'slice': slice})
+
+
+def slice_list(request):
+    slice_list = Slice.objects.all()
+    context = {'slice_list': slice_list}
+    return render(request, 'visem/slicelist.html', context)
+
+
+def slice_create(request):
+	if request.method == 'POST':
+		form = SliceForm(request.POST)
+		if form.is_valid():
+			slice = Slice(slice_h=form.slice_h, slice_v=form.slice_h)
+			slice.save()
+		return render(request, 'visem/slice/error.html')
+	else:
+        form = SliceForm()
+
+    return render(request, 'slice_create.html', {'form': form})

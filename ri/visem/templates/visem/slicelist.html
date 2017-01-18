@@ -1,0 +1,10 @@
+{% if slice_list %}
+    <ul>
+    {% for slice in slice_list %}
+        <li><a href="{% url 'slice_details' slice.id %}">{{ slice.slice_id }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Sem slices cadastrados.</p>
+	<p>clique <a href="{% url 'slice_create' %}">aqui</a> para cadastrar um novo slice</p>
+{% endif %}
