@@ -1,1 +1,5 @@
-# visem
+# VisEM - A Visual Representation for Indoor Emergency Management
+
+---------------
+
+O ser humano passa muito tempo em ambientes fechados (indoor), tais como escolas, fábricas e empresas. O gerenciamento de emergências em tais ambientes é útil e desafiador.As tecnologias de localização e visualização nestes ambientes não estão tão avançadas quanto às existentes para ambientes abertos (ex: localização via GPS, visualização em mapas, etc). Atualmente, muito esforço é dedicado à localização de pessoas em ambientes indoor. Apesar da relevância dessa atividade, poucos estudos investigam aspectos referentes à visualização desta informação. Este trabalho apresenta uma visualização para ambientes indoor visando o suporte à emergência. A visualização proposta foi baseada na opinião de profissionais da área de emergência, desenvolvida em um protótipo e validada com usuários finais. Os resultados mostram que a visualização desenvolvida é efetiva na transmissão da informação a respeito de um possível cenário de emergência em ambientes fechados, podendo assim dar suporte aos profissionais da área em suas atividades de resgate. 
