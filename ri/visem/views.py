@@ -2,7 +2,7 @@ from django.shortcuts import render
 from models import Slice
 from .forms import SliceForm
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 import json
 
@@ -31,12 +31,10 @@ def slice_details(request, slice_id):
     slice = get_object_or_404(Slice, pk=slice_id)
     return render(request, 'visem/slicedetails.html', {'slice': slice})
 
-
 def slice_list(request):
     slice_list = Slice.objects.all()
     context = {'slice_list': slice_list}
     return render(request, 'visem/slicelist.html', context)
-
 
 def slice_create(request):
 
@@ -59,17 +57,17 @@ def slice_create(request):
         
     return render(request, 'visem/slicecreate.html', {'form': form})
 
-
 def slice_details_json(request, slice_id):
     slice = get_object_or_404(Slice, pk=slice_id)
     slice_json = {"slice_id":slice.id, "slice_type":slice.slice_type, "slice_position":slice.slice_position}
     return JsonResponse(slice_json)
     
 def slice_get_all(request):
-    slices = Slice.objects.values("slice_type","slice_position")
-    print slices
+    slices = Slice.objects.all()
+    dictionaries = [slice.as_dict() for slice in slices]
+    print dictionaries
     slices_json = {}
     #for slice in slices:
        # slices_json = {"slice_id":slice.id, "slice_type":slice.slice_type, "slice_position":slice.slice_position}
     slices_json = json.dumps(serializers.serialize("json", slices))
-    return JsonResponse(dict(slices), safe=False)
+    return HttpResponse(json.dumps({"data": dictionaries}), content_type='application/json')
