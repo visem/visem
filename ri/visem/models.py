@@ -2,12 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Slicer(models.Model):
-    slice_h = models.IntegerField()
-    slice_v = models.IntegerField()
+class Slice(models.Model):
+    slice_type = models.CharField(max_length=255, null=True, default=None)
+    slice_position = models.FloatField(default=None)
     
-    def cadastrar(self):
-        self.save()
-    
-    def __str__(self):
-        pass

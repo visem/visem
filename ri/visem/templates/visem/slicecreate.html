@@ -7,7 +7,11 @@
 {% endif %}
 <form action="{% url 'slice_create' %}" method="post">
     {% csrf_token %}
-    slice h: {{ form.slice_h }}
-	slice v: {{ form.slice_v }}
+    <b>slice h:</b> 
+        {{ form.slice_h }}
+    <br/> 
+	<b>slice v:</b>
+	    {{ form.slice_v }}
+	<br/>
     <input type="submit" value="Submit" />
 </form> 

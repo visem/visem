@@ -11,9 +11,9 @@ VISEM.Main = (function() {
 	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
 	var people = new Array();
-	// var slicer = new VISEM.Slicer("vertical", 300);
-	// slicer.init();
-//	console.log(slicer);
+	var slices = new Array();
+	var sliceFile = "/static/jsons/slice.json";
+
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
 
@@ -34,12 +34,20 @@ VISEM.Main = (function() {
 		
 		for (var i = 0; i < people.length; i++) {
 			people[i].draw();
-		};
+		}
+		
+		getResource("GET", sliceFile, initSlice);
+		
+		for (var i = 0; i < slices.length; i++) {
+			slices[i].init();
+		}
+		
+		console.log(slices);
 		
 		countPeople(plant.rooms, people);
 
-		//getResource("GET", plantFile, initHeatMap);
 		initHeatMap(plant);
+		
 		paper.project.view.update();
 	};
 
@@ -51,10 +59,18 @@ VISEM.Main = (function() {
 
 	var initPeople = function(data){
 		for (var i = 0; i < data.length; i++) {
-			people.push(new VISEM.Person(data[i].idPerson, data[i].positionX, data[i].positionY, data[i].age, data[i].stationary, data[i].disability, plant.ratio)); 
-		};
-	};
-
+			people.push(new VISEM.Person(data[i].idPerson, data[i].positionX, data[i].positionY, data[i].age, data[i].stationary, data[i].disability, plant.ratio));
+		}
+	}
+	
+	var initSlice = function(data){
+		var s =  data.children;
+		for (var i = 0; i < s.length; i++) {
+			console.log(s[i]);
+			slices.push(new VISEM.Slice(s[i].id, s[i].type, s[i].position));
+		}
+	}
+	
 	var initHeatMap = function(data){
 				
     	var dataset = prepareData(data);
@@ -117,20 +133,20 @@ VISEM.Main = (function() {
 				if (isInside(point,room[i])) {
 					counter++;
 					//console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
-				};
-			};
+				}
+			}
 			room[i].peopleCounter = counter;
-		};
-	};
+		}
+	}
 
 	function isInside(point, room){
 		if (((point.x >= room.initialPoint.x) && (point.x <= room.finalPoint.x)) && ((point.y >= room.initialPoint.y) && (point.y <= room.finalPoint.y)))
 			return true;
 		return false;
-	};
+	}
 
 	function euclideanDistance(a, b) {	
-		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
+		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 	}
 
 })();

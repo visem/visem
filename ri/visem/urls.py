@@ -16,4 +16,5 @@ urlpatterns = [
 	# visem/slice/list
 	url(r'^visem/slice/list/$', views.slice_list, name='slice_list'),
         url(r'^visem/slice/(?P<slice_id>[0-9]+)/json/$', views.slice_details_json, name='slice_details_json'),
+        url(r'^visem/slice/json/$', views.slice_get_all, name='slice_get_all')
 ]
