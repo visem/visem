@@ -9,3 +9,5 @@ def is_inside(point, room):
 def count_people(people, room):
     ### Returns the count of people inside a room.
     pass
+    
+#if __name__ == "__main__"

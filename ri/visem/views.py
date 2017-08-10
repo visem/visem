@@ -44,11 +44,11 @@ def slice_create(request):
             slice_h = int(form.cleaned_data['slice_h'])
             slice_v = int(form.cleaned_data['slice_v'])
             
-            for s in range(1, slice_h):
+            for s in range(1, slice_h + 1):
                 h_slice = Slice(slice_type='horizontal', slice_position=int(10*s))
                 h_slice.save()
                 
-            for s in range(1, slice_v): 
+            for s in range(1, slice_v + 1): 
                 v_slice = Slice(slice_type='vertical', slice_position=int(10*s))
                 v_slice.save()
             return render(request, 'visem/ok.html')
@@ -65,9 +65,10 @@ def slice_details_json(request, slice_id):
 def slice_get_all(request):
     slices = Slice.objects.all()
     dictionaries = [slice.as_dict() for slice in slices]
-    print dictionaries
-    slices_json = {}
+    #print dictionaries
+    #slices_json = {}
     #for slice in slices:
-       # slices_json = {"slice_id":slice.id, "slice_type":slice.slice_type, "slice_position":slice.slice_position}
-    slices_json = json.dumps(serializers.serialize("json", slices))
-    return HttpResponse(json.dumps({"data": dictionaries}), content_type='application/json')
+    #    slices_json = {"slice_id":slice.id, "slice_type":slice.slice_type, "slice_position":slice.slice_position}
+    #slices_json = json.dumps(serializers.serialize("json", slices))
+    return HttpResponse(json.dumps({"slices": dictionaries}), content_type='application/json')
+    

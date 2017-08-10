@@ -12,7 +12,8 @@ VISEM.Main = (function() {
 	var plant = new VISEM.Plant();
 	var people = new Array();
 	var slices = new Array();
-	var sliceFile = "/static/jsons/slice.json";
+	//var sliceFile = "/static/jsons/slice.json";
+	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
 
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
@@ -20,7 +21,7 @@ VISEM.Main = (function() {
 	window.onload = function() {
 		draw();
 
-		//countPeople(plant.rooms, people);
+		countPeople(plant.rooms, people);
 		
 	};
 
@@ -32,9 +33,9 @@ VISEM.Main = (function() {
 
 		getResource("GET", peopleFile, initPeople);
 		
-		for (var i = 0; i < people.length; i++) {
-			people[i].draw();
-		}
+		// for (var i = 0; i < people.length; i++) {
+		// 	people[i].draw();
+		// }
 		
 		getResource("GET", sliceFile, initSlice);
 		
@@ -42,7 +43,17 @@ VISEM.Main = (function() {
 			slices[i].init();
 		}
 		
-		console.log(slices);
+		// console.log(slices);
+		
+		// //O PROGRESSO ESTÁ AQUI!!!!!
+		// this.onclick = function(event) {
+		// 	console.log("Event:", event)
+		// 	for (var i = slices.length; i--; ) {
+		// 		slices[i].any();
+		// 	}
+			
+		// 	//console.log(slices[1].drag(event));
+		// }
 		
 		countPeople(plant.rooms, people);
 
@@ -64,11 +75,11 @@ VISEM.Main = (function() {
 	}
 	
 	var initSlice = function(data){
-		var s =  data.children;
+		var s =  data.slices;
 		for (var i = 0; i < s.length; i++) {
-			console.log(s[i]);
-			slices.push(new VISEM.Slice(s[i].id, s[i].type, s[i].position));
+			slices.push(new VISEM.Slice(s[i].slice_id, s[i].slice_type, s[i].slice_position));
 		}
+		console.log(slices);
 	}
 	
 	var initHeatMap = function(data){
@@ -82,41 +93,26 @@ VISEM.Main = (function() {
 		};
 
 		heatInstance.setData(dataPoints);
-		console.log(heatInstance);
+		//console.log(heatInstance);
 	};
 
 	var prepareData = function(object){
 		var preparedData = new Array();
-
-		//console.log("Planta: ",object);
-		/*
-			[{ x: 0, y: 0, value 0	}];
-		*/
-		// debugger;
-		// for(var i=0; i < object.length; i++){   
-		// 	var point = {
-		// 		x: object[i].positionX * Math.floor(plant.ratio), 
-		// 		y: object[i].positionY * Math.floor(plant.ratio),
-		// 		value:  Math.floor(Math.random()*100)
-		// 	};	
-		// 	preparedData.push(point);
-	 //   }
 		var number = object.children.length;
 		var data = object.rooms;
 		for (var i = 0; i < number; i++) {
-			var pt = {
-				x: Math.round(((data[i].totalWidth * data[i].totalHeight)/2) + data[i].initialPoint.x),
-				y: Math.round(((data[i].totalWidth * data[i].totalHeight)/2) + data[i].initialPoint.y)
+			 var pt = {
+				x: (data[i].totalWidth /2) + data[i].initialPoint.x,
+				y: (data[i].totalHeight/2) + data[i].initialPoint.y
 			};
-			console.log(((data[i].totalWidth * data[i].totalHeight)/2)+ data[i].initialPoint.x);
+
 			var point = {
-		 	//   	x: Math.round(data[i].finalPoint.x) * Math.round(plant.ratio), 
-				// y: Math.round(data[i].finalPoint.y) * Math.round(plant.ratio),
-				x: pt.x * Math.round(plant.ratio), 
-				y: pt.y * Math.round(plant.ratio),
-				value: data[i].peopleCounter * 200
+				x: Math.round(pt.x * plant.ratio), 
+				y: Math.round(pt.y * plant.ratio),
+				value: data[i].peopleCounter * 300,
+				radius: data[i].peopleCounter * 50
 			};	
-			console.log(point.x, point.y);
+			console.log("Point: "+point.x, point.y);
 			preparedData.push(point);
 		}
 		

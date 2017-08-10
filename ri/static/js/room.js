@@ -31,12 +31,12 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 			}
 			
 		    this.path.add(object);
-		};
+		}
 
 		this.path.closed = true;
 		this.path.fillColor = 'green';
 		console.log(this);
-	}
+	};
 
 	var createWallInView = function (object){
 		
@@ -72,7 +72,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	    });
 
 	    return door;    
-	}
+	};
 
 	this.path.onMouseDown = function(event){
 		console.log(this.name);
@@ -80,9 +80,9 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 
 	var greaterPoint = function(pointA, pointB){
 		return Point.max(pointA, pointB);
-	}
+	};
 
 	var lowerPoint = function(pointA, pointB){
 		return Point.min(pointA, pointB);
-	}
+	};
 };
