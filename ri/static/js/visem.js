@@ -13,8 +13,9 @@ VISEM.Main = (function() {
 	var people = new Array();
 	var slices = new Array();
 	//var sliceFile = "/static/jsons/slice.json";
-	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
-
+// 	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
+    var sliceFile = "http://localhost:8000/visem/slice/json/";
+    
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
 
@@ -38,11 +39,36 @@ VISEM.Main = (function() {
 		// }
 		
 		getResource("GET", sliceFile, initSlice);
+        
+        var slice_hor_counter = 0;
+        var slice_ver_counter = 0;
+        
+        for(var i = 0; i < slices.length; i++){
+            if(slices[i].type == "horizontal") 
+                slice_hor_counter++;
+            else
+                slice_ver_counter++;
+        };
 		
+        var vcounter = slice_ver_counter;
+        var hcounter = slice_hor_counter;
+        
+        console.log(canvasWrapper.clientHeight);
+        
 		for (var i = 0; i < slices.length; i++) {
-			slices[i].init();
-		}
-		
+            if(slices[i].type == "horizontal"){
+                slices[i].init((canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter);
+                hcounter--;
+            }
+            else{
+                slices[i].init((canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter);
+                vcounter--;
+            }
+            console.log(vcounter, hcounter);
+            console.log(" Tipo: " + slices[i].type,
+                        " posX: " + ((canvasWrapper.clientWidth / slice_ver_counter+1) * vcounter),
+                        " posY: " + ((canvasWrapper.clientHeight / slice_hor_counter+1) * hcounter));
+        }
 		// console.log(slices);
 		
 		// //O PROGRESSO ESTÁ AQUI!!!!!

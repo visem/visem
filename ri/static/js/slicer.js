@@ -7,19 +7,19 @@ VISEM.Slice = function (id, type, position) {
 	this.position = position;
 };
 
-VISEM.Slice.prototype.init = function () {
+VISEM.Slice.prototype.init = function (position) {
 		
 	this.path.strokeColor = "blue";
 	this.path.selected = false;
 	this.path.style.strokeWidth = 3;
 	
 	if (this.type === "vertical") {
-		this.path.add(new Point(this.position, 0));
-		this.path.add(new Point(this.position, window.innerHeight));	
+		this.path.add(new Point(position, 0));
+		this.path.add(new Point(position, window.innerHeight));	
 	}
 	else {
-		this.path.add(new Point(0, this.position));
-		this.path.add(new Point(window.innerWidth, this.position));
+		this.path.add(new Point(0, position));
+		this.path.add(new Point(window.innerWidth, position));
 	}
 	
 };
