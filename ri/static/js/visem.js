@@ -15,6 +15,9 @@ VISEM.Main = (function() {
 	//var sliceFile = "/static/jsons/slice.json";
 // 	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
     var sliceFile = "http://localhost:8000/visem/slice/json/";
+    var slice_hor_counter = 0;
+    var slice_ver_counter = 0;
+    var areas = [];
     
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
@@ -23,6 +26,8 @@ VISEM.Main = (function() {
 		draw();
 
 		countPeople(plant.rooms, people);
+        
+        initAreas();
 		
 	};
 
@@ -39,16 +44,6 @@ VISEM.Main = (function() {
 		// }
 		
 		getResource("GET", sliceFile, initSlice);
-        
-        var slice_hor_counter = 0;
-        var slice_ver_counter = 0;
-        
-        for(var i = 0; i < slices.length; i++){
-            if(slices[i].type == "horizontal") 
-                slice_hor_counter++;
-            else
-                slice_ver_counter++;
-        };
 		
         var vcounter = slice_ver_counter;
         var hcounter = slice_hor_counter;
@@ -57,17 +52,18 @@ VISEM.Main = (function() {
         
 		for (var i = 0; i < slices.length; i++) {
             if(slices[i].type == "horizontal"){
-                slices[i].init((canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter);
+                slices[i].init((canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
                 hcounter--;
             }
             else{
-                slices[i].init((canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter);
+                slices[i].init((canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter+1);
                 vcounter--;
             }
             console.log(vcounter, hcounter);
             console.log(" Tipo: " + slices[i].type,
                         " posX: " + ((canvasWrapper.clientWidth / slice_ver_counter+1) * vcounter),
                         " posY: " + ((canvasWrapper.clientHeight / slice_hor_counter+1) * hcounter));
+
         }
 		// console.log(slices);
 		
@@ -82,7 +78,7 @@ VISEM.Main = (function() {
 		// }
 		
 		countPeople(plant.rooms, people);
-
+        
 		initHeatMap(plant);
 		
 		paper.project.view.update();
@@ -104,6 +100,10 @@ VISEM.Main = (function() {
 		var s =  data.slices;
 		for (var i = 0; i < s.length; i++) {
 			slices.push(new VISEM.Slice(s[i].slice_id, s[i].slice_type, s[i].slice_position));
+            if(s[i].slice_type == "horizontal")
+                slice_hor_counter++;
+            else
+                slice_ver_counter++;
 		}
 		console.log(slices);
 	}
@@ -111,7 +111,6 @@ VISEM.Main = (function() {
 	var initHeatMap = function(data){
 				
     	var dataset = prepareData(data);
-		//console.log(data);
     	var dataPoints = {
 			max: people.length * 100,
 			min: 0,
@@ -154,13 +153,30 @@ VISEM.Main = (function() {
 				
 				if (isInside(point,room[i])) {
 					counter++;
-					//console.log("Sala: "+room[i].name+" Tem "+counter+" Pessoas.")
 				}
 			}
 			room[i].peopleCounter = counter;
 		}
 	}
 
+function initAreas(){
+		var width = (canvas.clientWidth / (slice_ver_counter+1));
+		var height = (canvas.clientHeight / (slice_hor_counter+1));
+		
+		for (var i = 0; i < (slice_hor_counter+1); i++) {
+			for (var j = 0; j < (slice_ver_counter+1); j++){
+                if(i==0 && j==0){
+                    areas.push({initialX: i ,initialY: j, finalX: width, finalY: height});
+                }
+               areas.push({initialX: (width * j), initialY: (height * i), finalX: (width * (j+1)), finalY: (height * (i+1))});
+               var fim = new Path.Circle({ position: new Point((width * j),  (height * i)), radius: 3, strokeColor: "red", fillColor: "red"});
+               var fim = new Path.Circle({ position: new Point((width * (j+1)),  (height * (i+1))), radius: 8, strokeColor: "green", fillColor: "green"});
+               paper.project.view.update();
+			}
+		}
+		console.log(areas);
+	}
+	
 	function isInside(point, room){
 		if (((point.x >= room.initialPoint.x) && (point.x <= room.finalPoint.x)) && ((point.y >= room.initialPoint.y) && (point.y <= room.finalPoint.y)))
 			return true;
