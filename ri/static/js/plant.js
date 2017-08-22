@@ -12,6 +12,7 @@ VISEM.Plant = function (name, type, width, height, children) {
 	this.diagonal;
     this.clearance  = 5;
     this.children = children;
+    this.areas = new Array();
 };
 
 VISEM.Plant.prototype.init = function(canvasWrapper) {
