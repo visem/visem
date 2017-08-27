@@ -11,7 +11,7 @@ VISEM.Slice.prototype.init = function (position) {
 		
 	this.path.strokeColor = "blue";
 	this.path.selected = false;
-	this.path.style.strokeWidth = 3;
+	this.path.style.strokeWidth = 1;
 	
 	if (this.type === "vertical") {
 		this.path.add(new Point(position, 0));

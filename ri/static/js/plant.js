@@ -17,7 +17,7 @@ VISEM.Plant = function (name, type, width, height, children) {
 
 VISEM.Plant.prototype.init = function(canvasWrapper) {
 
-    var canvasWidth = wrapper.clientWidth;
+    var canvasWidth = canvasWrapper.clientWidth;
     this.largerSide = this.diagonal(this.width, this.height);
     this.ratio = this.getRatio(canvasWidth, this.largerSide);
 
