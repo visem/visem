@@ -1,0 +1,346 @@
+{
+    "name": "GSORT",
+    "type": "building",
+    "totalWidth": 15.62,
+    "totalHeight": 9.92,
+    "children": 
+    [
+        {
+            "idRoom": 1,
+            "name": "Saleta Coordenação", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.20, "y": 7.95},
+                    "finalPoint": {"x": 2.30, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.20, "y": 7.95},
+                    "finalPoint": {"x": 0.20, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 8.17},
+                    "finalPoint": {"x": 0.20, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 8.17},
+                    "finalPoint": {"x": 0, "y": 9.37}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 9.37},
+                    "finalPoint": {"x": 2.30, "y": 9.37}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 9.92},
+                    "finalPoint": {"x": 2.30, "y": 8.82}
+                },
+                {   "codigo": 2,
+                    "relativePaths": 
+                    [
+                        {"cod": 1, "distance": 1, "weight": 2}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 2.25, "y": 8.82},
+                    "finalPoint": {"x": 2.30, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "idRoom": 2,
+            "name": "Ante-sala", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 0},
+                    "finalPoint": {"x": 2.30, "y": 1.90}
+                },
+                {   "codigo": 0,
+                    "relativePaths": 
+                    [
+                        {"cod": 21, "distance": 0, "weight": 0}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 2.25, "y": 1.90},
+                    "finalPoint": {"x": 2.30, "y": 2.77}
+                },
+                {
+                    "type": "EmergencyExit",
+                    "initialPoint": {"x": 2.25, "y": 1.90},
+                    "finalPoint": {"x": 2.30, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 2.77},
+                    "finalPoint": {"x": 4.32, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.19, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 0},
+                    "finalPoint": {"x": 6.86, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 0},
+                    "finalPoint": {"x": 6.86, "y": 0}
+                }
+            ]
+        },
+        {
+            "idRoom": 3,
+            "name": "Coordenação de ADS", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 2.77},
+                    "finalPoint": {"x": 4.32, "y": 2.77}
+                },
+                {   "codigo": 1,
+                    "relativePaths": 
+                    [
+                        {"cod": 3, "distance": 0, "weight": 1},
+                        {"cod": 25, "distance": 3, "weight": 3}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 4.32, "y": 2.72},
+                    "finalPoint": {"x": 5.19, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.19, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 9.92},
+                    "finalPoint": {"x": 2.30, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 9.92},
+                    "finalPoint": {"x": 2.30, "y": 8.82}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.30, "y": 2.77},
+                    "finalPoint": {"x": 2.30, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "idRoom": 4,
+            "name": "Recepção", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 2.40}
+                },
+                {   "codigo": 3,
+                    "relativePaths": 
+                    [
+                        {"cod": 4, "distance": 0, "weight": 1},
+                        {"cod": 26, "distance": 4, "weight": 2},
+                        {"cod": 27, "distance": 5, "weight": 2}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 6.81, "y": 0.88},
+                    "finalPoint": {"x": 6.86, "y": 1.64}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 0},
+                    "finalPoint": {"x": 6.86, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 0},
+                    "finalPoint": {"x": 10.92, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 0},
+                    "finalPoint": {"x": 10.92, "y": 1.19}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 2.04},
+                    "finalPoint": {"x": 10.92, "y": 2.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 10.06, "y": 2.77}
+                }
+            ]
+        },
+        {
+            "idRoom": 5,
+            "name": "Sala dos Professores", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 2.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 10.06, "y": 2.77}
+                },
+                {   "codigo": 4,
+                    "relativePaths": 
+                    [
+                        {"cod": 5, "distance": 3, "weight": 2},
+                        {"cod": 6, "distance": 5, "weight": 2},
+                        {"cod": 23, "distance": 7, "weight": 1}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 10.06, "y": 2.72},
+                    "finalPoint": {"x": 10.92, "y": 2.77}
+                },
+                {   "codigo": 7,
+                    "relativePaths": 
+                    [
+                        {"cod": 24, "distance": 7, "weight": 0}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 8.86, "y": 9.87},
+                    "finalPoint": {"x": 9.92, "y": 9.92}                
+                },
+                {
+                    "type": "EmergencyExit",
+                    "initialPoint": {"x": 8.86, "y": 9.87},
+                    "finalPoint": {"x": 9.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 2.77},
+                    "finalPoint": {"x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 2.77},
+                    "finalPoint": {"x": 6.86, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.86, "y": 9.92},
+                    "finalPoint": {"x": 10.92, "y": 9.92}
+                },
+                {   "codigo": 8,
+                    "relativePaths": 
+                    [
+                        {"cod": 29, "distance": 7, "weight": 1},
+                        {"cod": 30, "distance": 4, "weight": 3},
+                        {"cod": 32, "distance": 1, "weight": 2},
+                        {"cod": 33, "distance": 2, "weight": 3}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 6.86, "y": 7.92},
+                    "finalPoint": {"x": 6.81, "y": 8.82}              
+                }
+            ]
+        },
+        {  
+            "idRoom": 6,
+            "name": "Laboratório", 
+            "type": "room",            
+            "totalWidth": 4.70,
+            "totalHeight": 9.92,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 0},
+                    "finalPoint": {"x": 10.92, "y": 1.19}
+                },
+                {   "codigo": 5,
+                    "relativePaths": 
+                    [
+                        {"cod": 7, "distance": 3, "weight": 2},
+                        {"cod": 8, "distance": 6, "weight": 1},
+                        {"cod": 28, "distance": 4, "weight": 2}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 10.87, "y": 1.19},
+                    "finalPoint": {"x": 10.92, "y": 2.04}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 2.04},
+                    "finalPoint": {"x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 2.04},
+                    "finalPoint": {"x": 10.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 9.92},
+                    "finalPoint": {"x": 15.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 15.62, "y": 0},
+                    "finalPoint": {"x": 15.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 10.92, "y": 0},
+                    "finalPoint": {"x": 15.62, "y": 0}
+                },
+                {   "codigo": 6,
+                    "relativePaths": 
+                    [
+                        {"cod": 22, "distance": 6, "weight": 0},
+                        {"cod": 34, "distance": 5, "weight": 3}
+                    ],
+                    "type": "door",
+                    "initialPoint": {"x": 15.57, "y": 1.19},
+                    "finalPoint": {"x": 15.62, "y": 2.04}
+                },
+                {
+                    "type": "EmergencyExit",
+                    "initialPoint": {"x": 15.57, "y": 1.19},
+                    "finalPoint": {"x": 15.62, "y": 2.04}
+                }
+            ]
+        }
+    ]    
+}
