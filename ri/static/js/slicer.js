@@ -7,7 +7,7 @@ VISEM.Slice = function (id, type, position) {
 	this.position = position;
 };
 
-VISEM.Slice.prototype.init = function (position) {
+VISEM.Slice.prototype.init = function (canvasWrapper, position) {
 		
 	this.path.strokeColor = "blue";
 	this.path.selected = false;
@@ -15,11 +15,11 @@ VISEM.Slice.prototype.init = function (position) {
 	
 	if (this.type === "vertical") {
 		this.path.add(new Point(position, 0));
-		this.path.add(new Point(position, window.innerHeight));	
+		this.path.add(new Point(position, canvasWrapper.clientHeight));	
 	}
 	else {
 		this.path.add(new Point(0, position));
-		this.path.add(new Point(window.innerWidth, position));
+		this.path.add(new Point(canvasWrapper.clientWidth, position));
 	}
 	
 };

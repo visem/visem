@@ -1,7 +1,7 @@
 var VISEM = VISEM || {};
 
 VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
-	this.path = new Path();
+	this.path = new CompoundPath();
 	this.name = name;
 	this.type = type;
 	this.totalWidth = totalWidth;
@@ -30,11 +30,11 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 				object = createEmergencyExitInView(this.children[i]);
 			}
 			
-		    this.path.add(object);
+		    this.path.insertChild(object);
 		}
 
 		this.path.closed = true;
-		this.path.fillColor = 'green';
+		this.path.fillColor = 'red';
 		console.log(this);
 	};
 
@@ -44,7 +44,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	    wall.strokeColor = 'black';
 	    wall.add(new Point(object.initialPoint.x*ratio, object.initialPoint.y*ratio));
 	    wall.add(new Point(object.finalPoint.x*ratio, object.finalPoint.y*ratio));
-
+        wall.style.strokeWidth = 3;
 	    return wall;
 	}
 

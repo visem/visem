@@ -7,7 +7,6 @@ VISEM.Main = (function() {
 	var canvasWrapper = document.getElementById('wrapper');
 	paper.setup(canvas);
 	var plantFile = "/static/jsons/gsortPlant.json";
-	var number = Math.round(Math.random()*10);
 	var peopleFile = "/static/jsons/people3.json";
 	var plant = new VISEM.Plant();
 	var people = new Array();
@@ -34,9 +33,9 @@ VISEM.Main = (function() {
         
 		getResource("GET", peopleFile, initPeople);
 		
-// 		for (var i = 0; i < people.length; i++) {
-// 			people[i].draw();
-// 		}
+		for (var i = 0; i < people.length; i++) {
+			people[i].draw();
+		}
 		
 		getResource("GET", sliceFile, initSlice);
 		
@@ -45,26 +44,24 @@ VISEM.Main = (function() {
         
         initAreas();
         console.log(canvasWrapper.clientHeight);
-        
+
         for (var i = 0; i < slices.length; i++) {
             if(slices[i].type == "horizontal"){
-                slices[i].init((canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
+                slices[i].init(canvasWrapper ,(canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
                 hcounter--;
             }
             else{
-                slices[i].init((canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter+1);
+                slices[i].init(canvasWrapper, (canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter+1);
                 vcounter--;
             }
         }
 
- 		countPeople(plant.rooms, people);
+        countPeople(plant.rooms, people);
         
         countPeople(plant.areas, people);
-//         console.log("Areas", plant.areas.length);
-//         for(var i=0; i < plant.areas.length; i++)
-//             console.log("Contador de Area: ", plant.areas[i].peopleCounter, "Area",i);
         
-		initHeatMap(plant.areas);
+// 		initHeatMap(plant.areas);
+//         initHeatMap(plant.rooms);
 		
 		paper.project.view.update();
 	};
@@ -172,15 +169,5 @@ VISEM.Main = (function() {
 	function euclideanDistance(a, b) {	
 		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 	}
-	
-// 	function mediumPoint(object) {
-//         var counter = 0;
-//         var points = []
-//         for(var i = 0; i < object.length; i++) {
-//             points.push({
-//                 
-//             });
-//         }
-//     }
-
+    
 })();

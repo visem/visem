@@ -6,31 +6,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">    
         <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.
         <meta http-equiv="refresh" content="60">-->
-
-	    <style type="text/css">
-	        body {
-	            margin: 0;
-	            padding: 0;
-	        }
-
-	    	.wrapper{
-				margin: 0px;
-				padding: 0px;
-				width: 100%;
-				min-width: 100px;
-				height: 100%;
-				min-height: 200px;
-				position: fixed;
-			}
-
-	    </style>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     </head>
-    {% block content%}
-        
-    {% endblock%}
+    <body>
+ <!--      <nav id="menubar" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Visem</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input type="checkbox" name="heatmap" checked="true" onchange="menuCheck(this)"/>
+                        <label for-name="heatmap">Heatmap</label>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Vertical" aria-label="Vertical">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Horizontal" aria-label="Horizontal">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
+                        <input type="checkbox" name="slices" onchange="menuCheck(this)"/>
+                        <label for-name="slices">Slices</label>
+                        <input type="checkbox" name="routes" onchange="menuCheck(this)"/>
+                        <label for-name="routes">Rotas de Fuga</label>
+                    </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>-->
+        {% block content%}
+            
+        {% endblock%}
+    </body>
     <!-- Load the Paper.js library -->
     <script type="text/javascript" src="{% static 'js/paper.js' %}"></script>
-
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
     <!-- Load the JQuery.js library -->
     <script type="text/javascript" src="{% static 'js/jquery-2.1.3.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
@@ -42,4 +54,10 @@
     <script type="text/javascript" src="{% static 'js/slicer.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/visem.js' %}"></script>
+    
+    <script type="text/javascript">
+        function menuCheck(event){
+            console.log(event);
+        }
+    </script>
 </html>

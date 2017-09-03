@@ -10,16 +10,20 @@ VISEM.Plant = function (name, type, width, height, children) {
 	this.ratio;
 	this.largerSide;
 	this.diagonal;
-    this.clearance  = 5;
+    this.clearance  = 20;
     this.children = children;
     this.areas = new Array();
 };
 
 VISEM.Plant.prototype.init = function(canvasWrapper) {
-
-    var canvasWidth = canvasWrapper.clientWidth;
+    var menu = document.getElementById("menubar");
+    var canvasWidth = canvasWrapper.clientWidth - this.clearance;
+    var canvasHeight = canvasWrapper.clientHeight - this.clearance/* - menu.clientHeight*/;
     this.largerSide = this.diagonal(this.width, this.height);
+//     this.ratio = this.getRatio(canvasWidth, this.largerSide);
+    var canvasLargerSide = this.diagonal(canvasWidth, canvasHeight);
     this.ratio = this.getRatio(canvasWidth, this.largerSide);
+    console.log("Ratio>", this.ratio);
 
     for (var i = 0; i < this.children.length; i++) {
        var room = new VISEM.Room(
