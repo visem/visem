@@ -55,7 +55,8 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 			topLeft: [object.initialPoint.x*ratio, object.initialPoint.y*ratio],
 			bottomRight: [object.finalPoint.x*ratio, object.finalPoint.y*ratio],
 			strokeColor: 'green',
-			fillColor: 'green'
+			fillColor: 'green',
+			strokeWidth: 5
 		});
 
 	    return emergencyExit;
@@ -68,7 +69,8 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	        topLeft: [object.initialPoint.x*ratio, object.initialPoint.y*ratio],
 	        bottomRight: [object.finalPoint.x*ratio, object.finalPoint.y*ratio],
 	        strokeColor: 'red',
-	        fillColor: 'red'
+	        fillColor: 'red',
+	        strokeWidth: 5
 	    });
 
 	    return door;    
@@ -85,4 +87,63 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 	var lowerPoint = function(pointA, pointB){
 		return Point.min(pointA, pointB);
 	}
+
+	VISEM.Room.prototype.isInside = function(point){
+		if (((point.x >= this.initialPoint.x) && (point.x <= this.finalPoint.x)) && ((point.y >= this.initialPoint.y) && (point.y <= this.finalPoint.y)))
+			return true;
+		return false;
+	};
+
+	VISEM.Room.prototype.isInsideRatio = function(point){
+		if (((point.x >= this.initialPoint.x*ratio) && (point.x <= this.finalPoint.x*ratio)) && ((point.y >= this.initialPoint.y*ratio) && (point.y <= this.finalPoint.y*ratio)))
+			return true;
+		return false;
+	};
+
+	VISEM.Room.prototype.isInsideDoor2 = function(point){
+	    for (var i = 0; i < this.children.length; i++) {
+	        if(this.children[i].type === "door"){
+
+	       		var door = createDoorInView(this.children[i]);
+	            door.visible = false;
+	            
+	            if(door.contains(point)){
+	            	door.removeSegments();
+					return this.children[i].codigo;
+	            };    
+	        };
+		};
+	    	
+	    return -1;
+	};
+
+	VISEM.Room.prototype.getCloserDoor = function(point){
+		var closerDoorNumber = null;
+		var closerDoor = -1;
+
+	    for (var i = 0; i < this.children.length; i++) {
+	        if(this.children[i].type === "door"){
+	       		var pointDoor = new Point(this.children[i].initialPoint.x*ratio, this.children[i].initialPoint.y*ratio);
+	            var dist = point.getDistance(pointDoor);
+	            if(closerDoorNumber === null || (dist < closerDoorNumber)){
+	            	closerDoorNumber = dist;
+	            	closerDoor = this.children[i].codigo;
+	            };    
+	        };
+		};
+		    	
+		return closerDoor;
+	};
+
+	VISEM.Room.prototype.getDoors = function(){
+		var doors = new Array();
+
+	    for (var i = 0; i < this.children.length; i++) {
+	        if(this.children[i].type === "door"){
+	       		doors.push(this.children[i]); 
+	        };
+		};
+		    	
+		return doors;
+	};
 };
