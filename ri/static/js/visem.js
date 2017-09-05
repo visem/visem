@@ -1,7 +1,8 @@
 var VISEM = VISEM || {};
 
 VISEM.Main = (function() {
-
+    
+    var self = this;
 	paper.install(window);
 	var canvas = document.getElementById('visemCanvas');
 	var canvasWrapper = document.getElementById('wrapper');
@@ -15,53 +16,65 @@ VISEM.Main = (function() {
     var sliceFile = "http://localhost:8000/visem/slice/json/";
     var slice_hor_counter = 0;
     var slice_ver_counter = 0;
+    var heatmap_check = document.getElementById("heatmap-check");
+    heatmap_check.checked = true;
+    var slice_check = document.getElementById("slice-check");
+    
+    heatmap_check.addEventListener("change", makeChange);
+    slice_check.addEventListener("change", makeChange);
+    
+
     
 	//Heatmap instance
 	var heatInstance = h337.create({container: canvasWrapper});
 
 	window.onload = function() {
+        getResource("GET", plantFile, initPlant);
+        getResource("GET", peopleFile, initPeople);
+        getResource("GET", sliceFile, initSlice);
 		draw();
-
-		countPeople(plant.rooms, people);
 	};
 
 	this.draw = function(event) {
-		getResource("GET", plantFile, initPlant);
-		
-		plant.init(canvasWrapper);
-		plant.draw();
-        
-		getResource("GET", peopleFile, initPeople);
-		
-		for (var i = 0; i < people.length; i++) {
-			people[i].draw();
-		}
-		
-		getResource("GET", sliceFile, initSlice);
-		
-        var vcounter = slice_ver_counter;
-        var hcounter = slice_hor_counter;
-        
-        initAreas();
-        console.log(canvasWrapper.clientHeight);
 
-        for (var i = 0; i < slices.length; i++) {
-            if(slices[i].type == "horizontal"){
-                slices[i].init(canvasWrapper ,(canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
-                hcounter--;
-            }
-            else{
-                slices[i].init(canvasWrapper, (canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter+1);
-                vcounter--;
+		plant.init(canvasWrapper);
+        
+		plant.draw();
+
+        if(heatmap_check.checked !== true){
+            var peopleLayer = new Layer();
+            for (var i = 0; i < people.length; i++) {
+                people[i].draw();
             }
         }
 
-        countPeople(plant.rooms, people);
+        initAreas();
+        console.log(canvasWrapper.clientHeight);
         
+        if(slice_check.checked === true) {
+            var vcounter = slice_ver_counter;
+            var hcounter = slice_hor_counter;
+            var sliceLayer = new Layer();
+            for (var i = 0; i < slices.length; i++) {
+                if(slices[i].type == "horizontal"){
+                    slices[i].init(canvasWrapper ,(canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
+                    hcounter--;
+                }
+                else{
+                    slices[i].init(canvasWrapper, (canvasWrapper.clientWidth / (slice_ver_counter+1)) * vcounter+1);
+                    vcounter--;
+                }
+            }
+        }
+        
+        countPeople(plant.rooms, people);
         countPeople(plant.areas, people);
         
-// 		initHeatMap(plant.areas);
-//         initHeatMap(plant.rooms);
+        if(heatmap_check.checked === true && slice_check.checked === true)
+            initHeatMap(plant.areas);
+        
+        if(heatmap_check.checked === true)
+            initHeatMap(plant.rooms);
 		
 		paper.project.view.update();
 	};
@@ -170,4 +183,8 @@ VISEM.Main = (function() {
 		return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 	}
     
+    function makeChange(event){
+    
+        self.draw();
+    }
 })();

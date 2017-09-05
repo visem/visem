@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     </head>
     <body>
- <!--      <nav id="menubar" class="navbar navbar-expand-lg navbar-light bg-light">
+       <nav id="menubar" class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Visem</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,20 +21,20 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0">
-                        <input type="checkbox" name="heatmap" checked="true" onchange="menuCheck(this)"/>
+                        <input type="checkbox" name="heatmap" id="heatmap-check" onchange=""/>
                         <label for-name="heatmap">Heatmap</label>
                         <input class="form-control mr-sm-2" type="text" placeholder="Vertical" aria-label="Vertical">
                         <input class="form-control mr-sm-2" type="text" placeholder="Horizontal" aria-label="Horizontal">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
-                        <input type="checkbox" name="slices" onchange="menuCheck(this)"/>
+                        <input type="checkbox" name="slices" id="slice-check" onchange=""/>
                         <label for-name="slices">Slices</label>
-                        <input type="checkbox" name="routes" onchange="menuCheck(this)"/>
+                        <input type="checkbox" name="routes" onchange=""/>
                         <label for-name="routes">Rotas de Fuga</label>
                     </form>
                     </li>
                 </ul>
             </div>
-        </nav>-->
+        </nav>
         {% block content%}
             
         {% endblock%}
@@ -58,6 +58,7 @@
     <script type="text/javascript">
         function menuCheck(event){
             console.log(event);
+            VISEM.Main.draw();
         }
     </script>
 </html>

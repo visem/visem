@@ -43,6 +43,7 @@ VISEM.Plant.prototype.draw = function() {
     for (var i = 0; i < this.rooms.length; i++) {
         this.rooms[i].draw();
     };
+    paper.project.view.update();
 };
 
 VISEM.Plant.prototype.getRatio = function(canvasWidth, largerSide) {

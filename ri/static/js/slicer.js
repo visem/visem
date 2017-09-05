@@ -21,7 +21,7 @@ VISEM.Slice.prototype.init = function (canvasWrapper, position) {
 		this.path.add(new Point(0, position));
 		this.path.add(new Point(canvasWrapper.clientWidth, position));
 	}
-	
+	paper.project.view.update();
 };
 
 VISEM.Slice.prototype.any = function() {
