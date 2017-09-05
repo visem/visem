@@ -21,14 +21,14 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0">
-                        <input type="checkbox" name="heatmap" id="heatmap-check" onchange=""/>
+                        <input type="checkbox" name="heatmap" id="heatmap-check"/>
                         <label for-name="heatmap">Heatmap</label>
                         <input class="form-control mr-sm-2" type="text" placeholder="Vertical" aria-label="Vertical">
                         <input class="form-control mr-sm-2" type="text" placeholder="Horizontal" aria-label="Horizontal">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
-                        <input type="checkbox" name="slices" id="slice-check" onchange=""/>
+                        <input type="checkbox" name="slices" id="slice-check"/>
                         <label for-name="slices">Slices</label>
-                        <input type="checkbox" name="routes" onchange=""/>
+                        <input type="checkbox" name="routes" id="route-check" />
                         <label for-name="routes">Rotas de Fuga</label>
                     </form>
                     </li>
@@ -41,10 +41,11 @@
     </body>
     <!-- Load the Paper.js library -->
     <script type="text/javascript" src="{% static 'js/paper.js' %}"></script>
+        <!-- Load the JQuery.js library -->
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
-    <!-- Load the JQuery.js library -->
-    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.js' %}"></script>
+
     <script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/room.js' %}"></script>
