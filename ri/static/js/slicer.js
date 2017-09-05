@@ -1,35 +1,63 @@
 var VISEM = VISEM || {};
 
 VISEM.Slicer = function (type, position) {
-	this.path = new Path();
+	var path;
+	path = new Path();
 	this.type = type;
 	this.position = position;
+	self = this;
+	this.pa;
 
 	this.init = function () {
-		this.path.strokeColor = "black";
-		this.path.selected = false;
-
+		
+		path.strokeColor = "blue";
+		path.selected = false;
+		path.style.strokeWidth = 3;
 		if (type === "vertical"){
-			this.path.add(new Point(window.innerWidth / 2, 0));
-			this.path.add(new Point(window.innerWidth / 2, window.innerHeight));
+			path.add(new Point(window.innerWidth / 2, 0));
+			path.add(new Point(window.innerWidth / 2, window.innerHeight));
 		}
 		else {
-			this.path.add(new Point(0, window.innerHeight / 2));
-			this.path.add(new Point(window.innerWidth, window.innerHeight/ 2));	
+			path.add(new Point(0, window.innerHeight / 2));
+			path.add(new Point(window.innerWidth, window.innerHeight/ 2));	
 		}
+		//path = new Path.Circle({ position: new Point(window.innerWidth/2, window.innerHeight/2), radius: 20, strokeColor: 'black', fillColor: 'green'});
+		
 	};
-
-	this.onMouseDrag = this.path.onMouseDrag = function(event){
-		this.path.selected = true;
+	
+	path.on('click', function(event) {
+	    console.log('Point: ',event.point);
+	});
+	
+	path.on('mousedown', function (event) {
+		console.log('slicer onMouseDown', this, self);
+	});
+	
+	path.on('mousedrag' ,function(event){
+		console.log('OnMouseDrag');
+		path.selected = true;
 	    
 	    if(this.type === "vertical")
-	    	this.path.position.x += event.delta.x;
+	    	path.position.x += event.delta.x;
 	    else
-	    	this.path.position.y += event.delta.y;
-	};
-
-	this.onMouseLeave = this.path.onMouseLeave = function (event) {
-		if(this.path.selected)
-			this.path.selected = false;
-	}
+	    	path.position.y += event.delta.y;
+	});
+	
+	path.on('mouseup', function(event) {
+	   console.log('up') ;
+	});
+	
+	path.on('mouseleave', function (event) {
+		// debugger;
+		// if(this.path.selected)
+		// 	this.path.selected = false;
+		console.log(self.type);
+		console.log('path', this);
+	});
+	
+	path.on('mouseenter', function(event) {
+	    console.log('Point: ',event.point);
+	});
+	
+	this.pa = path;
 }

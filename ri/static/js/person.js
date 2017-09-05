@@ -66,7 +66,7 @@ VISEM.Person = function(id, posX, posY, age, stationary, disability, ratio) {
 	};
 
 	var createTriangleInView = function(object, color){	
-		var person = new Path.RegularPolygon(new Point(object.positionX*ratio, object.positionY*ratio), 3, 12);	
+		var person = new Path.RegularPolygon(new Point(object.positionX*ratio, object.positionY*ratio), 3, 12);
 		person.fillColor = color;	
 		person.strokeColor = color;	
 		return person;         
