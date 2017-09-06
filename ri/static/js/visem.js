@@ -32,7 +32,7 @@ VISEM.Main = (function() {
     slice_check.addEventListener("change", makeChange);
     route_check.addEventListener("change", makeChange);
     
-
+    var tool = new paper.Tool();
     
 	//Heatmap instance
 // 	var heatInstance = h337.create({container: canvasWrapper});
@@ -76,6 +76,7 @@ VISEM.Main = (function() {
         }
         
         sliceLayer.visible = false;
+        $("#slicewrapper").children().prop('disabled',true);
         countPeople(plant.rooms, people);
         countPeople(plant.areas, people);
         
@@ -187,10 +188,12 @@ VISEM.Main = (function() {
     var callHeatInstance = function (argument) {
         console.log(heatInstance);
         var heatcanvas = document.getElementsByClassName("heatmap-canvas")[0];
+        var div_slices = document.getElementById("slicewrapper");
         
         if(heatmap_check.checked === true && slice_check.checked === true){
             peopleLayer.visible = false;
             sliceLayer.visible = true;
+            $("#slicewrapper").children().prop('disabled',false);
             paper.project.view.update();
             heatcanvas.style.display = "block";
             heatInstance.init(plant.areas);
@@ -198,6 +201,7 @@ VISEM.Main = (function() {
         } else if(heatmap_check.checked === true && slice_check.checked === false) {
             peopleLayer.visible = false;
             //sliceLayer.visible = false;
+            $("#slicewrapper").children().prop('disabled',true);
             paper.project.view.update();
             heatcanvas.style.display = "block";
             heatInstance.init(plant.rooms);

@@ -23,9 +23,13 @@
                     <form class="form-inline my-2 my-lg-0">
                         <input type="checkbox" name="heatmap" id="heatmap-check"/>
                         <label for-name="heatmap">Heatmap</label>
-                        <input class="form-control mr-sm-2" type="text" placeholder="Vertical" aria-label="Vertical" value="{{ slice_v }}">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Horizontal" aria-label="Horizontal" value="{{ slice_h }}">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
+                        <div id="slicewrapper" class="slice-wrapper" >
+                            <label for="slice-v">Vertical</label>
+                            <input class="form-control mr-sm-2" type="text" name="slice-v" placeholder="Vertical" aria-label="Vertical" value="{{ slice_v }}">
+                            <label for="slice-h">Horizontal</label>
+                            <input class="form-control mr-sm-2" type="text" name="slice-h" placeholder="Horizontal" aria-label="Horizontal" value="{{ slice_h }}">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
+                        </div>
                         <input type="checkbox" name="slices" id="slice-check"/>
                         <label for-name="slices">Slices</label>
                         <input type="checkbox" name="routes" id="route-check" />
