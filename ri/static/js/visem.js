@@ -10,6 +10,9 @@ VISEM.Main = (function() {
 	var plantFile = "/static/jsons/gsortPlant.json";
 	var peopleFile = "/static/jsons/people3.json";
 	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
+	var sliceLayer;
+	var peopleLayer;
+	var plantLayer;
 //    var sliceFile = "http://localhost:8000/visem/slice/json/";
 
 	var plant = new VISEM.Plant();
@@ -44,24 +47,21 @@ VISEM.Main = (function() {
 	};
 
 	this.draw = function(event) {
-
+        plantLayer = project.activeLayer;
 		plant.draw();
-
-        // if(heatmap_check.checked !== true){
-        var peopleLayer = new Layer();
+	    
+	    peopleLayer = new Layer();
         for (var i = 0; i < people.length; i++) {
             people[i].draw();
         }
-        // }
 
         initAreas();
         console.log(canvasWrapper.clientHeight);
         
-        // if(slice_check.checked === true) {
         var vcounter = slice_ver_counter;
         var hcounter = slice_hor_counter;
-        var sliceLayer = new Layer();
-        
+        sliceLayer = new Layer();
+        console.log("Slice Layer",sliceLayer);
         for (var i = 0; i < slices.length; i++) {
             if(slices[i].type == "horizontal"){
                 slices[i].init(canvasWrapper ,(canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
@@ -72,21 +72,18 @@ VISEM.Main = (function() {
                 vcounter--;
             }
         }
-        // }
         
         countPeople(plant.rooms, people);
         countPeople(plant.areas, people);
         
-        // if(heatmap_check.checked === true && slice_check.checked === true)
-        //initHeatMap(plant.areas);
-        
-        //if(heatmap_check.checked === true)
         heatInstance.init(plant.rooms);
 		
+		var newLayer = new Layer();
 		paper.project.view.update();
 	};
 
 	var initPlant = function(data){
+	    
 		if (data.type === "building") {
 			plant = new VISEM.Plant(data.name, data.type, data.totalWidth, data.totalHeight, data.children);
 		};
@@ -100,6 +97,7 @@ VISEM.Main = (function() {
 	
 	var initSlice = function(data){
 		var s =  data.slices;
+		
 		for (var i = 0; i < s.length; i++) {
 			slices.push(new VISEM.Slice(s[i].slice_id, s[i].slice_type, s[i].slice_position));
             if(s[i].slice_type == "horizontal")
@@ -164,20 +162,48 @@ VISEM.Main = (function() {
     function makeChange(event){
     	console.log(event);
     	var checkboxes = document.getElementsByName("checkboxes");
+    	var heatcanvas = document.getElementsByClassName("heatmap-canvas")[0];
     	
     	console.log(checkboxes);
+    	console.log(heatcanvas);
     	
     	if(event.target.id === "slice-check"){
     		
     		console.log("SLICE is now", event.target.checked);
+    		callHeatInstance();
     	}
     	if(event.target.id === "heatmap-check"){
     		console.log("HEATMAP is now ", event.target.checked);
+    		callHeatInstance();
     	}
     	if(event.target.id === "route-check"){
     		console.log("ROUTES is now", event.target.checked);
     	}
-    	
-        //self.draw();
     }
+    
+    var callHeatInstance = function (argument) {
+        console.log(heatInstance);
+        var heatcanvas = document.getElementsByClassName("heatmap-canvas")[0];
+        
+        if(heatmap_check.checked === true && slice_check.checked === true){
+            peopleLayer.visible = false;
+            heatcanvas.style.display = "block";
+            heatInstance.init(plant.areas);
+            heatInstance.instance.repaint();
+        } else if(heatmap_check.checked === true && slice_check.checked === false) {
+            peopleLayer.visible = false;
+            sliceLayer.visible = false;
+            heatcanvas.style.display = "block";
+            heatInstance.init(plant.rooms);
+            heatInstance.instance.repaint();
+        }
+        
+        if(heatmap_check.checked === false){
+            heatcanvas.style.display = "none";
+            sliceLayer.visible = false;
+            peopleLayer.visible = true;
+        }
+        
+    }
+    
 })();

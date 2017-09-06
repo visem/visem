@@ -5,22 +5,29 @@ VISEM.Slice = function (id, type, position) {
 	this.id = id;
 	this.type = type;
 	this.position = position;
+	
+	 this.create = function(canvas, position) {
+		var newslice = new Path({
+			strokeColor: "blue",
+			selected: false,
+			strokeWidth: 1
+		});
+		
+		if (this.type === "vertical") {
+			newslice.add(new Point(position, 0));
+			newslice.add(new Point(position, canvas.clientHeight));	
+		}
+		else {
+			newslice.add(new Point(0, position));
+			newslice.add(new Point(canvas.clientWidth, position));
+		}
+		
+		return newslice;
+	}
 };
 
 VISEM.Slice.prototype.init = function (canvasWrapper, position) {
-		
-	this.path.strokeColor = "blue";
-	this.path.selected = false;
-	this.path.style.strokeWidth = 1;
-	
-	if (this.type === "vertical") {
-		this.path.add(new Point(position, 0));
-		this.path.add(new Point(position, canvasWrapper.clientHeight));	
-	}
-	else {
-		this.path.add(new Point(0, position));
-		this.path.add(new Point(canvasWrapper.clientWidth, position));
-	}
+	this.path = this.create(canvasWrapper, position);
 	paper.project.view.update();
 };
 
