@@ -54,7 +54,9 @@ VISEM.Main = (function() {
         for (var i = 0; i < people.length; i++) {
             people[i].draw();
         }
-
+        
+        peopleLayer.visible = false;
+        
         initAreas();
         console.log(canvasWrapper.clientHeight);
         
@@ -73,6 +75,7 @@ VISEM.Main = (function() {
             }
         }
         
+        sliceLayer.visible = false;
         countPeople(plant.rooms, people);
         countPeople(plant.areas, people);
         
@@ -187,12 +190,15 @@ VISEM.Main = (function() {
         
         if(heatmap_check.checked === true && slice_check.checked === true){
             peopleLayer.visible = false;
+            sliceLayer.visible = true;
+            paper.project.view.update();
             heatcanvas.style.display = "block";
             heatInstance.init(plant.areas);
             heatInstance.instance.repaint();
         } else if(heatmap_check.checked === true && slice_check.checked === false) {
             peopleLayer.visible = false;
-            sliceLayer.visible = false;
+            //sliceLayer.visible = false;
+            paper.project.view.update();
             heatcanvas.style.display = "block";
             heatInstance.init(plant.rooms);
             heatInstance.instance.repaint();
@@ -202,6 +208,7 @@ VISEM.Main = (function() {
             heatcanvas.style.display = "none";
             sliceLayer.visible = false;
             peopleLayer.visible = true;
+            paper.project.view.update();
         }
         
     }
