@@ -9,13 +9,17 @@ VISEM.Main = (function() {
 	paper.setup(canvas);
 	var plantFile = "/static/jsons/gsortPlant.json";
 	var peopleFile = "/static/jsons/people3.json";
+	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
+//    var sliceFile = "http://localhost:8000/visem/slice/json/";
+
 	var plant = new VISEM.Plant();
 	var people = new Array();
 	var slices = new Array();
- 	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
-//    var sliceFile = "http://localhost:8000/visem/slice/json/";
+ 	var heatInstance = new VISEM.Heatmap(canvasWrapper);
+ 	
     var slice_hor_counter = 0;
     var slice_ver_counter = 0;
+    
     var heatmap_check = document.getElementById("heatmap-check");
     var slice_check = document.getElementById("slice-check");
     var route_check = document.getElementById("route-check");
@@ -28,10 +32,12 @@ VISEM.Main = (function() {
 
     
 	//Heatmap instance
-	var heatInstance = h337.create({container: canvasWrapper});
+// 	var heatInstance = h337.create({container: canvasWrapper});
 
 	window.onload = function() {
         getResource("GET", plantFile, initPlant);
+        plant.init(canvas);
+        heatInstance.setRatio(plant.ratio);
         getResource("GET", peopleFile, initPeople);
         getResource("GET", sliceFile, initSlice);
 		draw();
@@ -39,8 +45,6 @@ VISEM.Main = (function() {
 
 	this.draw = function(event) {
 
-		plant.init(canvasWrapper);
-        
 		plant.draw();
 
         // if(heatmap_check.checked !== true){
@@ -57,6 +61,7 @@ VISEM.Main = (function() {
         var vcounter = slice_ver_counter;
         var hcounter = slice_hor_counter;
         var sliceLayer = new Layer();
+        
         for (var i = 0; i < slices.length; i++) {
             if(slices[i].type == "horizontal"){
                 slices[i].init(canvasWrapper ,(canvasWrapper.clientHeight / (slice_hor_counter+1)) * hcounter+1);
@@ -76,7 +81,7 @@ VISEM.Main = (function() {
         //initHeatMap(plant.areas);
         
         //if(heatmap_check.checked === true)
-        initHeatMap(plant.rooms);
+        heatInstance.init(plant.rooms);
 		
 		paper.project.view.update();
 	};
@@ -104,35 +109,6 @@ VISEM.Main = (function() {
 		}
 	};
 	
-	var initHeatMap = function(data){
-        
-    	var dataset = prepareData(data);
-    	var dataPoints = {
-			max: people.length * 100,
-			min: 0,
-			data: dataset
-		};
-
-		heatInstance.setData(dataPoints);
-	};
-
-	var prepareData = function(data){
-		var preparedData = new Array();
-		var number = data.length;
-        var point = {};
-		for (var i = 0; i < number; i++) {
-            point = {
-                x: Math.round(((data[i].totalWidth/2) + data[i].initialPoint.x) * plant.ratio),
-                y: Math.round(((data[i].totalHeight/2) + data[i].initialPoint.y) * plant.ratio),
-                value: data[i].peopleCounter * 300,
-                radius: data[i].peopleCounter * 50
-            };
-			preparedData.push(point);
-		}
-		
-		return preparedData;
-	};
-
 	function countPeople(area, people) {
 		for (var i = 0; i < area.length; i++) {
 			var counter = 0;
@@ -188,6 +164,8 @@ VISEM.Main = (function() {
     function makeChange(event){
     	console.log(event);
     	var checkboxes = document.getElementsByName("checkboxes");
+    	
+    	console.log(checkboxes);
     	
     	if(event.target.id === "slice-check"){
     		
