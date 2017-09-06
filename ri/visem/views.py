@@ -22,7 +22,9 @@ def heatmap(request):
 	return render(request, 'visem/heatmap.html',{})
 
 def visem(request):
-	return render(request, 'visem/visem.html',{})
+    slice_v = Slice.objects.filter(slice_type='vertical').count()
+    slice_h = Slice.objects.filter(slice_type='horizontal').count()
+    return render(request, 'visem/visem.html',{'slice_v': slice_v, 'slice_h': slice_h})
 	
 def sliceform(request):
     return render(request, 'visem/sliceform.html',{})
@@ -65,10 +67,5 @@ def slice_details_json(request, slice_id):
 def slice_get_all(request):
     slices = Slice.objects.all()
     dictionaries = [slice.as_dict() for slice in slices]
-    #print dictionaries
-    #slices_json = {}
-    #for slice in slices:
-    #    slices_json = {"slice_id":slice.id, "slice_type":slice.slice_type, "slice_position":slice.slice_position}
-    #slices_json = json.dumps(serializers.serialize("json", slices))
     return HttpResponse(json.dumps({"slices": dictionaries}), content_type='application/json')
     
