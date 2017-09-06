@@ -44,3 +44,17 @@ canvas{
 	position: fixed;
 	overflow: hidden;
 }
+
+#slicewrapper{
+	
+}
+
+#slicewrapper label {
+	margin: 10px;
+	float: left;
+}
+
+#slicewrapper input[type="text"]{
+	float: left;
+	width: 50px;
+}
