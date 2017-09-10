@@ -58,3 +58,8 @@ canvas{
 	float: left;
 	width: 50px;
 }
+
+.heatmap-canvas{
+    position: absolute;
+    z-index: -1;
+}

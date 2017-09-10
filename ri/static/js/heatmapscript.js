@@ -3,13 +3,13 @@ var VISEM = VISEM || {};
 VISEM.Heatmap = function(container) {
 	this.instance = h337.create({container: container});
 	this.ratio = 0;
-	this._max = 100;
+	this._max = 1;
 	var self = this;
 
 	this.init = function(data) {
 		var dataset = prepareData(data);
     	var dataPoints = {
-			max: this._max,
+			max: this._max * 100,
 			min: 0,
 			data: dataset
 		};

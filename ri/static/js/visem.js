@@ -9,11 +9,11 @@ VISEM.Main = (function() {
 	paper.setup(canvas);
 	var plantFile = "/static/jsons/gsortPlant.json";
 	var peopleFile = "/static/jsons/people3.json";
-	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
+//	var sliceFile = "https://visindoor-fernandotelles.c9users.io/visem/slice/json/";
 	var sliceLayer;
 	var peopleLayer;
 	var plantLayer;
-//    var sliceFile = "http://localhost:8000/visem/slice/json/";
+    var sliceFile = "http://localhost:8000/visem/slice/json/";
 
 	var plant = new VISEM.Plant();
 	var people = new Array();
@@ -34,9 +34,10 @@ VISEM.Main = (function() {
     
     var tool = new paper.Tool();
     
-	//Heatmap instance
-// 	var heatInstance = h337.create({container: canvasWrapper});
-
+    tool.onMouseDown = function (event){
+        console.log(event);
+    }
+    
 	window.onload = function() {
         getResource("GET", plantFile, initPlant);
         plant.init(canvas);
@@ -80,6 +81,7 @@ VISEM.Main = (function() {
         countPeople(plant.rooms, people);
         countPeople(plant.areas, people);
         
+        heatInstance.setMax(people.length);
         heatInstance.init(plant.rooms);
 		
 		var newLayer = new Layer();
