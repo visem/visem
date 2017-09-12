@@ -22,7 +22,8 @@ def heatmap(request):
 	return render(request, 'visem/heatmap.html',{})
 
 def visem(request):
-    form = SliceForm()
+    form = SliceForm(initial={'slice_h': Slice.objects.filter(slice_type='horizontal').count(),
+                              'slice_v': Slice.objects.filter(slice_type='vertical').count()})
     return render(request, 'visem/visem.html',{'form': form})
 	
 def sliceform(request):
@@ -53,10 +54,8 @@ def slice_create(request):
             for s in range(1, slice_v + 1): 
                 v_slice = Slice(slice_type='vertical', slice_position=int(10*s))
                 v_slice.save()
-            form = SliceForm()
-            form.slice_h = Slice.objects.filter(slice_type='horizontal').count()
-            form.slice_v = Slice.objects.filter(slice_type='vertical').count()
-            #return render(request, 'visem/visem.html', {'form': form})
+            
+            #return render_to_response('visem/visem.html')
             return HttpResponseRedirect('/')
     else:
         form = SliceForm()

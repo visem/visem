@@ -13,7 +13,7 @@ VISEM.Main = (function() {
 	var sliceLayer;
 	var peopleLayer;
 	var plantLayer;
-    var sliceFile = "http://localhost:8000/visem/slice/json/";
+    var sliceFile = "/visem/slice/json/";
 
 	var plant = new VISEM.Plant();
 	var people = new Array();
