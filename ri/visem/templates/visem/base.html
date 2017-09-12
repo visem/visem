@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <html>
     <head>        
         <title>VisIndoor | GSORT</title>
@@ -20,28 +21,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0">
+                    <form class="form-inline my-2 my-lg-0" action="{% url 'slice_create' %}" method="post">
                         <input type="checkbox" name="heatmap" id="heatmap-check"/>
-                        <label for-name="heatmap">Heatmap</label>
-                        <div id="slicewrapper" class="slice-wrapper" >
-                            <label for="slice-v">Vertical</label>
-                            <input class="form-control mr-sm-2" type="text" name="slice-v" placeholder="Vertical" aria-label="Vertical" value="{{ slice_v }}">
-                            <label for="slice-h">Horizontal</label>
-                            <input class="form-control mr-sm-2" type="text" name="slice-h" placeholder="Horizontal" aria-label="Horizontal" value="{{ slice_h }}">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Slices</button>
+                            <label for-name="heatmap">Heatmap</label>
+                            
+                            {% include 'visem/slicecreate.html' %}
+                            
+                            <div class="slice-checker">
+                            <input type="checkbox" name="slices" id="slice-check"/>
+                            <label for-name="slices">Slices</label>
+                            <input type="checkbox" name="routes" id="route-check" />
+                            <label for-name="routes">Rotas de Fuga</label>
                         </div>
-                        <input type="checkbox" name="slices" id="slice-check"/>
-                        <label for-name="slices">Slices</label>
-                        <input type="checkbox" name="routes" id="route-check" />
-                        <label for-name="routes">Rotas de Fuga</label>
                     </form>
                     </li>
                 </ul>
             </div>
         </nav>
-        {% block content%}
+        {% block content %}
             
-        {% endblock%}
+        {% endblock %}
     </body>
     <!-- Load the Paper.js library -->
     <script type="text/javascript" src="{% static 'js/paper.js' %}"></script>

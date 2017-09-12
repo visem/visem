@@ -1,17 +1,23 @@
-{% if form.errors %}
-    <ul>
-    {% for error in form.errors %}
-        <li>{{ error|escape }}</li>
-    {% endfor %}
-    </ul>
-{% endif %}
-<form action="{% url 'slice_create' %}" method="post">
-    {% csrf_token %}
-    <b>slice h:</b> 
-        {{ form.slice_h }}
-    <br/> 
-	<b>slice v:</b>
-	    {{ form.slice_v }}
-	<br/>
-    <input type="submit" value="Submit" />
-</form> 
+{% block slice %}
+
+    {% if form.errors %}
+        <ul>
+        {% for error in form.errors %}
+            <li>{{ error|escape }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <div id="slicewrapper" class="slice-wrapper" >
+        <form action="{% url 'slice_create' %}" method="POST">
+            {% csrf_token %}
+            
+                <label for-name="slice-h">Horizontal</label>
+                    {{ form.slice_h }}
+
+                <label for-name="slice-v">Vertical</label>
+                    {{ form.slice_v }}
+
+                <input type="submit" value="Salvar" />
+        </form> 
+    </div>
+{% endblock slice %}

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Slice
 from .forms import SliceForm
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
 
@@ -22,9 +22,8 @@ def heatmap(request):
 	return render(request, 'visem/heatmap.html',{})
 
 def visem(request):
-    slice_v = Slice.objects.filter(slice_type='vertical').count()
-    slice_h = Slice.objects.filter(slice_type='horizontal').count()
-    return render(request, 'visem/visem.html',{'slice_v': slice_v, 'slice_h': slice_h})
+    form = SliceForm()
+    return render(request, 'visem/visem.html',{'form': form})
 	
 def sliceform(request):
     return render(request, 'visem/sliceform.html',{})
@@ -43,6 +42,7 @@ def slice_create(request):
     if (request.method == 'POST'):
         form = SliceForm(request.POST)
         if request.method == "POST" and form.is_valid():
+            Slice.objects.all().delete()
             slice_h = int(form.cleaned_data['slice_h'])
             slice_v = int(form.cleaned_data['slice_v'])
             
@@ -53,7 +53,11 @@ def slice_create(request):
             for s in range(1, slice_v + 1): 
                 v_slice = Slice(slice_type='vertical', slice_position=int(10*s))
                 v_slice.save()
-            return render(request, 'visem/ok.html')
+            form = SliceForm()
+            form.slice_h = Slice.objects.filter(slice_type='horizontal').count()
+            form.slice_v = Slice.objects.filter(slice_type='vertical').count()
+            #return render(request, 'visem/visem.html', {'form': form})
+            return HttpResponseRedirect('/')
     else:
         form = SliceForm()
         

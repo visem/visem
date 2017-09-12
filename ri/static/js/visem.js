@@ -202,7 +202,7 @@ VISEM.Main = (function() {
             heatInstance.instance.repaint();
         } else if(heatmap_check.checked === true && slice_check.checked === false) {
             peopleLayer.visible = false;
-            //sliceLayer.visible = false;
+            sliceLayer.visible = false;
             $("#slicewrapper").children().prop('disabled',true);
             paper.project.view.update();
             heatcanvas.style.display = "block";

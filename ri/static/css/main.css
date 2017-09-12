@@ -45,6 +45,10 @@ canvas{
 	overflow: hidden;
 }
 
+.slice-canvas{
+    
+}
+
 #slicewrapper{
 	
 }
@@ -54,7 +58,7 @@ canvas{
 	float: left;
 }
 
-#slicewrapper input[type="text"]{
+#slicewrapper input[type="number"]{
 	float: left;
 	width: 50px;
 }
