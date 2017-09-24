@@ -35,7 +35,7 @@ VISEM.Main = (function() {
     var tool = new paper.Tool();
     
     tool.onMouseDown = function (event){
-        console.log(event);
+        semanticZoom(event);
     }
     
 	window.onload = function() {
@@ -219,4 +219,28 @@ VISEM.Main = (function() {
         
     }
     
+    var semanticZoom = function (argument){
+    
+        var point = {
+            x: argument.point.x / plant.ratio, 
+            y: argument.point.y / plant.ratio
+        }
+        
+        console.log("Ponto: ", argument.point, "Ponto em metros: ", point);
+        
+        if(slice_check.checked === true){
+            console.log("True", argument.point);
+            for (var i = plant.areas.length; i--; ) {
+                if(isInside(point, plant.areas[i]))
+                    console.log("Area: ", plant.areas[i], "Contains point: ", point);
+            }
+        }
+        else{
+            console.log("False", argument.point);
+            for (var i = plant.rooms.length; i--; ) {
+                if(isInside(point, plant.rooms[i]))
+                    console.log("True Room: ", plant.rooms[i].name, "Contains point: ", point);
+            }
+        }
+    }
 })();
