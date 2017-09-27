@@ -1,0 +1,820 @@
+{
+    "name": "IFBA Pavilhão A",
+    "type": "building",
+    "totalWidth": 50.0,
+    "totalHeight": 9.92,
+    "children": 
+    [
+        {
+            "name": "Sala 1", 
+            "type": "room",            
+            "totalWidth": 4.27,
+            "totalHeight": 5.56,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 0},
+                    "finalPoint": {"x": 0, "y": 5.56}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 5.56},
+                    "finalPoint": {"x": 4.27, "y": 5.56}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 5.56},
+                    "finalPoint": {"x": 4.27, "y": 2.90}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 4.27, "y": 2.90},
+                    "finalPoint": {"x": 4.27, "y": 1.90}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 1.90},
+                    "finalPoint": {"x": 4.27, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 0},
+                    "finalPoint": {"x": 0, "y": 0}
+                }
+            ]
+        },
+        {
+            "name": "Sala 2", 
+            "type": "room",            
+            "totalWidth": 4.27,
+            "totalHeight": 4.36,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 5.56},
+                    "finalPoint": {"x": 0, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 9.92},
+                    "finalPoint": {"x": 4.27, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 9.92},
+                    "finalPoint": {"x": 4.27, "y": 8.09}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 4.27, "y": 8.09},
+                    "finalPoint": {"x": 4.27, "y": 7.09}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 7.09},
+                    "finalPoint": {"x": 4.27, "y": 5.56}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 5.56},
+                    "finalPoint": {"x": 0, "y": 5.56}
+                }
+            ]
+        },
+        {
+            "name": "Sala Principal", 
+            "type": "room",            
+            "totalWidth": 4.30,
+            "totalHeight": 9.92,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.27, "y": 9.92},
+                    "finalPoint": {"x": 8.57, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 9.92},
+                    "finalPoint": {"x": 8.57, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 8.57, "y": 3.77},
+                    "finalPoint": {"x": 8.57, "y": 3.01}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 8.57, "y": 3.01},
+                    "finalPoint": {"x": 8.57, "y": 2.25}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 2.25},
+                    "finalPoint": {"x": 8.57, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 0},
+                    "finalPoint": {"x": 4.27, "y": 0}
+                }
+            ]
+        },
+        {
+            "name": "Sala Coordenação 2", 
+            "type": "room",            
+            "totalWidth": 4.34,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 9.92},
+                    "finalPoint": {"x": 12.91, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 12.91, "y": 9.92},
+                    "finalPoint": {"x": 12.91, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 12.91, "y": 3.77},
+                    "finalPoint": {"x": 9.67, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 9.67, "y": 3.77},
+                    "finalPoint": {"x": 8.67, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.67, "y": 3.77},
+                    "finalPoint": {"x": 8.57, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 3.77},
+                    "finalPoint": {"x": 8.57, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Sala Coordenação 1", 
+            "type": "room",            
+            "totalWidth": 4.34,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 12.91, "y": 9.92},
+                    "finalPoint": {"x": 17.25, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 17.25, "y": 9.92},
+                    "finalPoint": {"x": 17.25, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 17.25, "y": 3.77},
+                    "finalPoint": {"x": 17.15, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 17.15, "y": 3.77},
+                    "finalPoint": {"x": 16.15, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 16.15, "y": 3.77},
+                    "finalPoint": {"x": 12.91, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 12.91, "y": 3.77},
+                    "finalPoint": {"x": 12.91, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Sala de Aula 1", 
+            "type": "room",            
+            "totalWidth": 8.60,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 17.25, "y": 9.92},
+                    "finalPoint": {"x": 25.85, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 25.85, "y": 9.92},
+                    "finalPoint": {"x": 25.85, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 25.85, "y": 3.77},
+                    "finalPoint": {"x": 25.75, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 25.75, "y": 3.77},
+                    "finalPoint": {"x": 24.75, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 24.75, "y": 3.77},
+                    "finalPoint": {"x": 18.35, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 18.35, "y": 3.77},
+                    "finalPoint": {"x": 17.35, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 17.35, "y": 3.77},
+                    "finalPoint": {"x": 17.25, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 17.25, "y": 3.77},
+                    "finalPoint": {"x": 17.25, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Diretoria de Pós Graduação", 
+            "type": "room",            
+            "totalWidth": 3.61,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 25.85, "y": 9.92},
+                    "finalPoint": {"x": 29.46, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 29.46, "y": 9.92},
+                    "finalPoint": {"x": 29.46, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 29.46, "y": 3.77},
+                    "finalPoint": {"x": 26.95, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 26.95, "y": 3.77},
+                    "finalPoint": {"x": 25.95, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 25.95, "y": 3.77},
+                    "finalPoint": {"x": 25.85, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 25.85, "y": 3.77},
+                    "finalPoint": {"x": 25.85, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "CPGEER", 
+            "type": "room",            
+            "totalWidth": 5.39,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 29.46, "y": 9.92},
+                    "finalPoint": {"x": 34.84, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 9.92},
+                    "finalPoint": {"x": 34.84, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 3.77},
+                    "finalPoint": {"x": 34.59, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 34.59, "y": 3.77},
+                    "finalPoint": {"x": 33.59, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 33.59, "y": 3.77},
+                    "finalPoint": {"x": 29.46, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 29.46, "y": 3.77},
+                    "finalPoint": {"x": 29.46, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Banheiro Masculino", 
+            "type": "room",            
+            "totalWidth": 2.76,
+            "totalHeight": 3.05,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 6.82},
+                    "finalPoint": {"x": 37.60, "y": 6.82}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 6.82},
+                    "finalPoint": {"x": 37.60, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 3.77},
+                    "finalPoint": {"x": 36.10, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 36.10, "y": 3.77},
+                    "finalPoint": {"x": 35.10, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 35.10, "y": 3.77},
+                    "finalPoint": {"x": 34.84, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 3.77},
+                    "finalPoint": {"x": 34.84, "y": 6.82}
+                }
+            ]
+        },
+        {
+            "name": "Banheiro Feminino", 
+            "type": "room",            
+            "totalWidth": 2.76,
+            "totalHeight": 3.10,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 9.92},
+                    "finalPoint": {"x": 37.60, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 9.92},
+                    "finalPoint": {"x": 37.60, "y": 8.87}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 37.60, "y": 8.87},
+                    "finalPoint": {"x": 37.60, "y": 7.87}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 7.87},
+                    "finalPoint": {"x": 37.60, "y": 6.82}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 6.82},
+                    "finalPoint": {"x": 34.84, "y": 6.82}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 34.84, "y": 6.82},
+                    "finalPoint": {"x": 34.84, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Elevadores 2", 
+            "type": "room",            
+            "totalWidth": 4.27,
+            "totalHeight": 3.10,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 3.77},
+                    "finalPoint": {"x": 42.11, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 42.11, "y": 3.77},
+                    "finalPoint": {"x": 43.70, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 43.70, "y": 3.77},
+                    "finalPoint": {"x": 44.30, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 3.77},
+                    "finalPoint": {"x": 39.60, "y": 4.25}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 39.60, "y": 4.25},
+                    "finalPoint": {"x": 39.60, "y": 5.15}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 5.15},
+                    "finalPoint": {"x": 39.60, "y": 5.63}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 39.60, "y": 5.63},
+                    "finalPoint": {"x": 39.60, "y": 6.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 6.95},
+                    "finalPoint": {"x": 39.60, "y": 7.0}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 39.60, "y": 6.95},
+                    "finalPoint": {"x": 39.60, "y": 8.27}
+                }
+                
+            ]
+        },
+        {
+            "name": "Copa",
+            "type": "room",            
+            "totalWidth": 4.27,
+            "totalHeight": 3.10,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 8.27},
+                    "finalPoint": {"x": 39.60, "y": 8.37}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 39.60, "y": 8.37},
+                    "finalPoint": {"x": 39.60, "y": 9.37}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 9.37},
+                    "finalPoint": {"x": 39.60, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 39.60, "y": 9.92},
+                    "finalPoint": {"x": 41.70, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.70, "y": 9.92},
+                    "finalPoint": {"x": 41.70, "y": 8.27}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.70, "y": 8.27},
+                    "finalPoint": {"x": 39.60, "y": 8.27}
+                }
+            ]
+        },
+        {
+            "name": "Corredor", 
+            "type": "room",            
+            "totalWidth": 35.33,
+            "totalHeight": 2.77,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.57, "y": 0},
+                    "finalPoint": {"x": 44.0, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.0, "y":0},
+                    "finalPoint": {"x": 44.0, "y": 1.90}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 44.0, "y": 1.90},
+                    "finalPoint": {"x": 44.0, "y": 3.77}
+                }
+            ]
+        },
+        {
+            "name": "Corredor 2", 
+            "type": "room",            
+            "totalWidth": 2.00,
+            "totalHeight": 6.15,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y": 3.77},
+                    "finalPoint": {"x": 37.60, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 37.60, "y":9.92},
+                    "finalPoint": {"x": 39.60, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Saleta Coordenação", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 2.77,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.90, "y": 7.95},
+                    "finalPoint": {"x": 44.00, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.90, "y": 7.95},
+                    "finalPoint": {"x": 41.90, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.70, "y": 8.17},
+                    "finalPoint": {"x": 41.90, "y": 8.17}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.70, "y": 8.17},
+                    "finalPoint": {"x": 41.70, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 41.70, "y": 9.92},
+                    "finalPoint": {"x": 44.00, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.0, "y": 9.92},
+                    "finalPoint": {"x": 44.0, "y": 8.82}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 44.0, "y": 8.82},
+                    "finalPoint": {"x": 44.0, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "name": "Ante-sala", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 3.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.00, "y": 0},
+                    "finalPoint": {"x": 44.00, "y": 1.90}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 44.00, "y": 1.90},
+                    "finalPoint": {"x": 44.00, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.00, "y": 3.77},
+                    "finalPoint": {"x": 46.02, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 46.89, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 3.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 0},
+                    "finalPoint": {"x": 48.56, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.00, "y": 0},
+                    "finalPoint": {"x": 48.56, "y": 0}
+                }
+            ]
+        },
+        {
+            "name": "Coordenação de ADS", 
+            "type": "room",            
+            "totalWidth": 4.56,
+            "totalHeight": 3.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.0, "y": 3.77},
+                    "finalPoint": {"x": 46.02, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 46.02, "y": 3.77},
+                    "finalPoint": {"x": 46.89, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 46.89, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 9.92},
+                    "finalPoint": {"x": 44.0, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.0, "y": 9.92},
+                    "finalPoint": {"x": 44.0, "y": 8.82}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 44.0, "y": 8.82},
+                    "finalPoint": {"x": 44.0, "y": 7.95}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 44.0, "y": 3.77},
+                    "finalPoint": {"x": 44.0, "y": 7.95}
+                }
+            ]
+        },
+        {
+            "name": "Recepção", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 3.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 2.40}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 48.56, "y": 0.88},
+                    "finalPoint": {"x": 48.56, "y": 1.64}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 48.56, "y": 1.64},
+                    "finalPoint": {"x": 48.56, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 0},
+                    "finalPoint": {"x": 48.56, "y": 0.88}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 0},
+                    "finalPoint": {"x": 54.92, "y": 0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 0},
+                    "finalPoint": {"x": 54.92, "y": 1.19}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 54.92, "y": 1.19},
+                    "finalPoint": {"x": 54.92, "y": 2.04}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 2.04},
+                    "finalPoint": {"x": 54.92, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 54.06, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 54.06, "y": 3.77},
+                    "finalPoint": {"x": 54.92, "y": 3.77}
+                }
+            ]
+        },
+        {
+            "name": "Sala dos Professores", 
+            "type": "room",            
+            "totalWidth": 3.20,
+            "totalHeight": 3.77,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 54.06, "y": 3.77}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 54.06, "y": 3.77},
+                    "finalPoint": {"x": 54.92, "y": 3.77}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 3.77},
+                    "finalPoint": {"x": 54.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 3.77},
+                    "finalPoint": {"x": 48.56, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 48.56, "y": 9.92},
+                    "finalPoint": {"x": 54.92, "y": 9.92}
+                }
+            ]
+        },
+        {
+            "name": "Laboratório", 
+            "type": "room",            
+            "totalWidth": 4.70,
+            "totalHeight": 9.92,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 0},
+                    "finalPoint": {"x": 54.92, "y": 1.19}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 54.92, "y": 1.19},
+                    "finalPoint": {"x": 54.92, "y": 2.04}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 2.04},
+                    "finalPoint": {"x": 54.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 2.04},
+                    "finalPoint": {"x": 54.92, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 9.92},
+                    "finalPoint": {"x": 59.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 59.62, "y": 0},
+                    "finalPoint": {"x": 59.62, "y": 9.92}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 54.92, "y": 0},
+                    "finalPoint": {"x": 59.62, "y": 0}
+                }
+            ]
+        }
+    ]    
+}
