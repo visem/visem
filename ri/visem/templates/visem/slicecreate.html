@@ -1,0 +1,13 @@
+{% if form.errors %}
+    <ul>
+    {% for error in form.errors %}
+        <li>{{ error|escape }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<form action="{% url 'slice_create' %}" method="post">
+    {% csrf_token %}
+    slice h: {{ form.slice_h }}
+	slice v: {{ form.slice_v }}
+    <input type="submit" value="Submit" />
+</form>
