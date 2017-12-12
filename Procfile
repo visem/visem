@@ -1,1 +1,1 @@
-web: gunicorn visindoor.wsgi --log-file -
+web: gunicorn ri.ri.wsgi --log-file -
