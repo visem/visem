@@ -1,0 +1,225 @@
+{
+    "name": "Little Home Plant",
+    "type": "building",
+    "totalWidth": 8.45,
+    "totalHeight": 5.50,
+    "children": 
+    [
+        {
+            "name": "Dormitório Casal", 
+            "type": "room",            
+            "totalWidth": 3.10,
+            "totalHeight": 2.40,
+            "children":
+            [   
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.0, "y":0.0},
+                    "finalPoint": {"x": 0.0, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.0, "y": 2.40},
+                    "finalPoint": {"x": 2.10, "y": 2.40}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 2.10, "y": 2.40},
+                    "finalPoint": {"x": 2.90, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 2.90, "y": 2.40},
+                    "finalPoint": {"x": 3.10, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 3.10, "y": 2.40},
+                    "finalPoint": {"x": 3.10, "y": 0.0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 3.10, "y": 0.0},
+                    "finalPoint": {"x": 0.0, "y": 0.0}
+                }
+            ]
+        },
+        {
+            "name": "Sala", 
+            "type": "room",            
+            "totalWidth": 7.35,
+            "totalHeight": 2.65,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0, "y": 2.40},
+                    "finalPoint": {"x": 0, "y": 2.73}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 0.0, "y": 2.73},
+                    "finalPoint": {"x": 0.0, "y": 4.73}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.0, "y": 4.73},
+                    "finalPoint": {"x": 0.0, "y": 5.06}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 0.0, "y": 5.06},
+                    "finalPoint": {"x": 7.20, "y": 5.06}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 5.06},
+                    "finalPoint": {"x": 7.20, "y": 3.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 2.60},
+                    "finalPoint": {"x": 7.20, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 2.40},
+                    "finalPoint": {"x": 6.00, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.10, "y": 2.40},
+                    "finalPoint": {"x": 4.90, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.10, "y": 2.40},
+                    "finalPoint": {"x": 3.05, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 3.05, "y": 2.40},
+                    "finalPoint": {"x": 0.0, "y": 2.40}
+                }
+            ]
+        },
+        {
+            "name": "Banheiro", 
+            "type": "room",            
+            "totalWidth": 1.85,
+            "totalHeight": 2.40,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 3.10, "y": 0.0},
+                    "finalPoint": {"x": 3.10, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.10, "y": 2.40},
+                    "finalPoint": {"x": 4.10, "y": 2.40}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 4.10, "y": 2.40},
+                    "finalPoint": {"x": 4.90, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 4.90, "y": 2.40},
+                    "finalPoint": {"x": 5.10, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.10, "y": 2.40},
+                    "finalPoint": {"x": 5.10, "y": 0.0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.10, "y": 0.0},
+                    "finalPoint": {"x": 3.10, "y": 0.0}
+                }
+            ]
+        },
+        {
+            "name": "Dormitório Solteiro", 
+            "type": "room",            
+            "totalWidth": 2.90,
+            "totalHeight": 2.40,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.10, "y": 0.0},
+                    "finalPoint": {"x": 5.10, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 5.10, "y": 2.40},
+                    "finalPoint": {"x": 5.20, "y": 2.40}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 5.20, "y": 2.40},
+                    "finalPoint": {"x": 6.00, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 6.00, "y": 2.40},
+                    "finalPoint": {"x": 8.05, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.05, "y": 2.40},
+                    "finalPoint": {"x": 8.05, "y": 0.0}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.05, "y": 0.0},
+                    "finalPoint": {"x": 5.10, "y": 0.0}
+                }
+            ]
+        },
+        {
+            "name": "Área de Serviço", 
+            "type": "room",            
+            "totalWidth": 0.80,
+            "totalHeight": 2.65,
+            "children":
+            [
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 2.40},
+                    "finalPoint": {"x": 7.20, "y": 2.60}
+                },
+                {
+                    "type": "door",
+                    "initialPoint": {"x": 7.20, "y": 2.60},
+                    "finalPoint": {"x": 7.20, "y": 3.00}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 3.00},
+                    "finalPoint": {"x": 7.20, "y": 5.06}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 7.20, "y": 5.06},
+                    "finalPoint": {"x": 8.05, "y": 5.06}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.05, "y": 5.06},
+                    "finalPoint": {"x": 8.05, "y": 2.40}
+                },
+                {
+                    "type": "wall",
+                    "initialPoint": {"x": 8.05, "y": 2.40},
+                    "finalPoint": {"x": 7.20, "y": 2.40}
+                }
+            ]
+        }
+        
+    ]    
+}

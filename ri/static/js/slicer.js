@@ -1,39 +1,64 @@
 var VISEM = VISEM || {};
 
-VISEM.Slicer = function (type, position) {
-	var path;
-	path = new Path();
+VISEM.Slice = function (id, type, position) {
+	this.path = new Path();
+	this.id = id;
 	this.type = type;
 	this.position = position;
-	self = this;
-	this.pa;
-
-	this.init = function () {
+	
+	 this.create = function(canvas, position) {
+		var newslice = new Path({
+			strokeColor: "blue",
+			selected: false,
+			strokeWidth: 1
+		});
 		
-		path.strokeColor = "blue";
-		path.selected = false;
-		path.style.strokeWidth = 3;
-		if (type === "vertical"){
-			path.add(new Point(window.innerWidth / 2, 0));
-			path.add(new Point(window.innerWidth / 2, window.innerHeight));
+		if (this.type === "vertical") {
+			newslice.add(new Point(position, 0));
+			newslice.add(new Point(position, canvas.clientHeight));	
 		}
 		else {
-			path.add(new Point(0, window.innerHeight / 2));
-			path.add(new Point(window.innerWidth, window.innerHeight/ 2));	
+			newslice.add(new Point(0, position));
+			newslice.add(new Point(canvas.clientWidth, position));
 		}
-		//path = new Path.Circle({ position: new Point(window.innerWidth/2, window.innerHeight/2), radius: 20, strokeColor: 'black', fillColor: 'green'});
 		
-	};
+		return newslice;
+	}
+};
+
+VISEM.Slice.prototype.init = function (canvasWrapper, position) {
+	this.path = this.create(canvasWrapper, position);
+	paper.project.view.update();
+};
+
+VISEM.Slice.prototype.any = function() {
+	this.path.selected = true;
+	this.path.strokeColor = "red";
+	this.path.strokeWidth = 5;
+};
+
+VISEM.Slice.prototype.drag = function(event) {
+	this.path.selected = true;
+	console.log(this.path);
+}
+	// this.path.onClick = function (event){
+	// 	console.log('Point: ', event.point);
+	// }
+/*
+	this.path.onmouseover = function (event) {
+		console.log(event.point)
+	}
 	
+	/*
 	path.on('click', function(event) {
-	    console.log('Point: ',event.point);
+	    console.log('Point: ', event.point);
 	});
-	
-	path.on('mousedown', function (event) {
+	*/
+/*	path.on('mousedown', function (event) {
 		console.log('slicer onMouseDown', this, self);
 	});
-	
-	path.on('mousedrag' ,function(event){
+*/	
+/*	path.on('mousedrag' ,function(event){
 		console.log('OnMouseDrag');
 		path.selected = true;
 	    
@@ -42,11 +67,12 @@ VISEM.Slicer = function (type, position) {
 	    else
 	    	path.position.y += event.delta.y;
 	});
-	
-	path.on('mouseup', function(event) {
+*/
+/*	path.on('mouseup', function(event) {
 	   console.log('up') ;
 	});
-	
+*/	
+/*	
 	path.on('mouseleave', function (event) {
 		// debugger;
 		// if(this.path.selected)
@@ -56,8 +82,7 @@ VISEM.Slicer = function (type, position) {
 	});
 	
 	path.on('mouseenter', function(event) {
-	    console.log('Point: ',event.point);
+	    console.log('Point: ', event.point);
 	});
-	
-	this.pa = path;
-}
+*/	
+

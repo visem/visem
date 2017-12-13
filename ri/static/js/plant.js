@@ -1,25 +1,33 @@
 var VISEM = VISEM || {} ;
 
 VISEM.Plant = function (name, type, width, height, children) {
-	this.path = new Path();
-	this.name = name;
-	this.type = type;
-	this.width = width;
-	this.height = height;
-	this.rooms = new Array();
-	this.ratio;
-	this.largerSide;
-	this.diagonal;
-    this.clearance  = 5;
+    this.path = new Path();
+    this.name = name;
+    this.type = type;
+    this.width = width;
+    this.height = height;
+    this.rooms = new Array();
+    this.ratio;
+    this.largerSide;
+    this.diagonal;
+    this.clearance  = 20;
     this.children = children;
+
     this.graph = new VISEM.Graph(this.name);
+
+    this.areas = new Array();
+
 };
 
 VISEM.Plant.prototype.init = function(canvasWrapper) {
-
-    var canvasWidth = wrapper.clientWidth;
+    var menu = document.getElementById("menubar");
+    var canvasWidth = canvasWrapper.clientWidth - this.clearance;
+    var canvasHeight = canvasWrapper.clientHeight - this.clearance/* - menu.clientHeight*/;
     this.largerSide = this.diagonal(this.width, this.height);
+//     this.ratio = this.getRatio(canvasWidth, this.largerSide);
+    var canvasLargerSide = this.diagonal(canvasWidth, canvasHeight);
     this.ratio = this.getRatio(canvasWidth, this.largerSide);
+    console.log("Ratio>", this.ratio);
 
     for (var i = 0; i < this.children.length; i++) {
        var room = new VISEM.Room(
@@ -42,7 +50,8 @@ VISEM.Plant.prototype.init = function(canvasWrapper) {
             if(tempChildren[j].type === "door"){
                 
                 for (var k = 0; k < tempChildren[j].relativePaths.length; k++) {
-                    var edge = new VISEM.Edge(k, tempChildren[j].codigo, tempChildren[j].relativePaths[k].distance, tempChildren[j].relativePaths[k].weight);
+                    var edge = new VISEM.Edge(k, tempChildren[j].codigo, tempChildren[j].relativePaths[k].distance,
+                                              tempChildren[j].relativePaths[k].weight);
                     this.graph.addEdge(edge);    
                 };
                 
@@ -63,6 +72,7 @@ VISEM.Plant.prototype.draw = function() {
     for (var i = 0; i < this.rooms.length; i++) {
         this.rooms[i].draw();
     };
+    paper.project.view.update();
 };
 
 VISEM.Plant.prototype.getRatio = function(canvasWidth, largerSide) {
@@ -74,7 +84,7 @@ VISEM.Plant.prototype.diagonal = function (width, height){
 };
 
 VISEM.Plant.prototype.addRoom = function(room) {
-	this.rooms.push(room);
+    this.rooms.push(room);
 };
 
 VISEM.Plant.prototype.isInsideDoor = function(point){
@@ -89,3 +99,4 @@ VISEM.Plant.prototype.isInsideDoor = function(point){
 
     return -1;
 };
+

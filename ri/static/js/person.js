@@ -37,7 +37,7 @@ VISEM.Person = function(id, posX, posY, age, stationary, disability, ratio) {
 	    if(this.hasDisability()){		
 	        createAnTraceInDisabilityPersonOfView(this);        
 	    }                    
-	        
+	        paper.project.view.update();
 	};
 
 	//It indicates the color of the person as black or red:

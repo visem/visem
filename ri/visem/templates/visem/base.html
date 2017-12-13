@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<html>
+    <head>        
+        <title>VisIndoor | GSORT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.
+        <meta http-equiv="refresh" content="60">-->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    </head>
+    <body>
+       <nav id="menubar" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Visem</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0" action="{% url 'slice_create' %}" method="post">
+                        <input type="checkbox" name="heatmap" id="heatmap-check"/>
+                            <label for-name="heatmap">Heatmap</label>
+                            
+                            {% include 'visem/slicecreate.html' %}
+                            
+                            <div class="slice-checker">
+                            <input type="checkbox" name="slices" id="slice-check" />
+                            <label for-name="slices">Slices</label>
+                            <input type="checkbox" name="routes" id="route-check" />
+                            <label for-name="routes">Rotas de Fuga</label>
+                        </div>
+                    </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block content %}
+            
+        {% endblock %}
+    </body>
+    
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="{% static 'js/paper.js' %}"></script>
+        <!-- Load the JQuery.js library -->
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/room.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plant.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/person.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/heatmap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/heatmapscript.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slicer.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/visem.js' %}"></script>
+    
+</html>

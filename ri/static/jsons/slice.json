@@ -1,0 +1,26 @@
+{
+    "plant": "GSORT Plant",
+    "children":
+    [
+        {"id": 1,
+         "type": "vertical",
+         "position": 100
+        },
+        {"id": 2,
+         "type": "vertical",
+         "position": 200
+        },
+        {"id": 3,
+         "type": "horizontal",
+         "position": 100
+        },
+        {"id": 4,
+         "type": "horizontal",
+         "position": 200
+        },
+        {"id": 5,
+         "type": "horizontal",
+         "position": 300
+        }
+    ]
+}

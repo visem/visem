@@ -1,60 +1,21 @@
-{% load staticfiles %}
-<html>
-    <head>        
-        <title>VisIndoor | GSORT</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        <!-- uncomment the meta tag below to make refresh the page according to content element time specified in seconds.
-        <meta http-equiv="refresh" content="60">-->
+{% extends 'visem/base.html' %}
 
-	    <style type="text/css">
+{% block content %}
 
-	    	.wrapper{
-				margin: 0px;
-				padding: 0px;
-				width: 100%;
-				min-width: 100px;
-				height: 100%;
-				min-height: 200px;
-				position: fixed;
-			}
+<div class="wrapper" id="wrapper">
+    <canvas id="visemCanvas"  resize=""></canvas>  
+    
+    <a href="#">
+        <img id="escape_route" src="../../../static/images/escape_route.png" alt="Escape Route" align="left">
+    </a> 
+    <canvas id="visemCanvas"  resize=""></canvas>        
+</div>
+<div id="textualInformation"></div>
 
-            .hidden{
-                display: none !important; 
-            }
+<p><img class="hidden" id="block" src="../../../static/images/block_big.png"></p>
+    
+</div>
+<div id="textualInformation"></div>
 
-	    </style>
-    </head>
-    <body>
-        <!-- This div will be the header -->
-        <div class="navigator"></div> <!-- -->
-        <div class="wrapper" id="wrapper">
-            <a href="#">
-                <img id="escape_route" src="../../../static/images/escape_route.png" alt="Escape Route" align="left">
-            </a> 
-            <canvas id="visemCanvas"  resize=""></canvas>        
-        </div>
-        <div id="textualInformation"></div>
+{% endblock content %}
 
-        <p><img class="hidden" id="block" src="../../../static/images/block_big.png"></p>
-        
-    </body>
-        <!-- Load the Paper.js library -->
-        <script type="text/javascript" src="{% static 'js/paper.js' %}"></script>
-
-        <!-- Load the JQuery.js library -->
-        <script type="text/javascript" src="{% static 'js/jquery-2.1.3.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/httprequest.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/vertex.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/edge.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/room.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/plant.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/person.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/heatmap.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/slicer.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/visem.js' %}"></script>
-</html>

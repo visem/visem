@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<html lang="pt-br"> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>VisEM</title>
+        <style type="text/css">
+            body{
+                /*width: 100%;*/
+                margin:10px;
+                padding:0;
+            }
+            .content{
+                width: 80%;
+                margin: 0 auto;
+            }
+            .figure{
+                width: 80%;
+                margin: 0 auto;
+            }
+            img{
+                width: 100%;
+                margin: 0 auto;
+                border: 1px solid #333;
+            }
+            figcaption{
+                text-align: center;
+                font-weight: bold;
+            }
+            .wrapper{
+                width: 70%;
+                margin: 0 auto;
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <form>
+            <label for="divVertical">Divisórias Verticais</label>
+            <input type="text" name="divVertical"/>
+            <label for="divHorinzontal">Divisorias Horizontais</label>
+            <input type="text" name="divHorinzontal"/>
+            <input type="submit" name="submitSlicer" value="Submit"/>
+        </form>
+    </body>
+</html>
