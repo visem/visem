@@ -86,7 +86,6 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 
     var lowerPoint = function(pointA, pointB){
             return Point.min(pointA, pointB);
-<<<<<<< HEAD
     }
 
     VISEM.Room.prototype.isInside = function(point){
