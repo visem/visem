@@ -14,6 +14,7 @@ VISEM.Main = (function() {
     var sliceLayer;
     var peopleLayer;
     var plantLayer;
+    var routeLayer;
     var sliceFile = "/visem/slice/json/";
 
     var plant = new VISEM.Plant();
@@ -37,7 +38,7 @@ VISEM.Main = (function() {
     var tool = new paper.Tool();
     
 
-	window.onload = function() {
+    window.onload = function() {
         getResource("GET", plantFile, initPlant);
         plant.init(canvas);
         heatInstance.setRatio(plant.ratio);
@@ -45,15 +46,14 @@ VISEM.Main = (function() {
         getResource("GET", sliceFile, initSlice);
         draw();
         countPeople(plant.rooms, people);
-        initRoute();
-
-	};
+    };
 
     this.draw = function(event) {
         plantLayer = project.activeLayer;
         plant.draw();
 
         peopleLayer = new Layer();
+
         for (var i = 0; i < people.length; i++) {
             people[i].draw();
         }
@@ -66,7 +66,7 @@ VISEM.Main = (function() {
         var vcounter = slice_ver_counter;
         var hcounter = slice_hor_counter;
         sliceLayer = new Layer();
-        console.log("Slice Layer",sliceLayer);
+        console.log("Slice Layer", sliceLayer);
         
         for (var i = 0; i < slices.length; i++) {
             if(slices[i].type == "horizontal"){
@@ -86,7 +86,12 @@ VISEM.Main = (function() {
         
         heatInstance.setMax(people.length);
         heatInstance.init(plant.rooms);
-
+        
+        routeLayer = new Layer();
+        initRoute();
+        
+        routeLayer.visible = false;
+        
         var newLayer = new Layer();
         paper.project.view.update();
     };
@@ -213,6 +218,11 @@ VISEM.Main = (function() {
         console.log("The all shortestpath in the graph is: " + plant.graph.newRoutesFW + "\n");
 
         console.log("===================== Graph =====================");
+        
+        
+        //Inicializa a planta com o algoritmo Floyd-Warshall
+        plant.graph.zoom = plant.graph.FLOYD_WARSHALL;
+        plant.graph.createRoutes(plant.graph.zoom);
     };
 
     /*
@@ -305,16 +315,16 @@ VISEM.Main = (function() {
         };
     };
 
-    $( "#escape_route" ).click(function() {
-        if(plant.graph.zoom == 0){
-            plant.graph.zoom = plant.graph.FLOYD_WARSHALL;
-            plant.graph.createRoutes(plant.graph.zoom);
-        }else{
-            plant.graph.zoom = 0;
-            plant.graph.removePath();
-        };
-        paper.project.view.update();
-    });
+//     $( "#escape_route" ).click(function() {
+//         if(plant.graph.zoom == 0){
+//             plant.graph.zoom = plant.graph.FLOYD_WARSHALL;
+//             plant.graph.createRoutes(plant.graph.zoom);
+//         }else{
+//             plant.graph.zoom = 0;
+//             plant.graph.removePath();
+//         };
+//         paper.project.view.update();
+//     });
 
     function makeChange(event){
     	console.log(event);
@@ -335,6 +345,7 @@ VISEM.Main = (function() {
     	}
     	if(event.target.id === "route-check"){
     		console.log("ROUTES is now", event.target.checked);
+                callHeatInstance();
     	}
     }
     
@@ -359,9 +370,17 @@ VISEM.Main = (function() {
             heatcanvas.style.display = "block";
             heatInstance.init(plant.rooms);
             heatInstance.instance.repaint();
+        } //else if (heatmap_check.checked === true && )
+        
+        if(route_check.checked === true) {
+            routeLayer.visible = true;
+            paper.project.view.update();
+        } else {
+            routeLayer.visible = false;
+            paper.project.view.update();
         }
         
-        if(heatmap_check.checked === false){
+        if(heatmap_check.checked === false) {
             heatcanvas.style.display = "none";
             sliceLayer.visible = false;
             peopleLayer.visible = true;
