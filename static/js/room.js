@@ -1,7 +1,7 @@
 var VISEM = VISEM || {};
 
 VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
-    this.path = new CompoundPath();
+    this.path = new Group();
     this.name = name;
     this.type = type;
     this.totalWidth = totalWidth;
@@ -13,31 +13,44 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
     this.peopleCounter = 0;
 
     this.draw = function() {
+        
+        fillPoints.call(this);
+        this.path.addChild(createRoom.call(this));
+        
         for (var i = 0; i < this.children.length; i++) {
                 
             var object = new Path();
             
-            this.initialPoint = lowerPoint(this.initialPoint, this.children[i].initialPoint);
-            this.finalPoint = greaterPoint(this.finalPoint, this.children[i].finalPoint);
-
+            
             if(this.children[i].type === "wall"){
-                    object = createWallInView(this.children[i]);
+//                 object = createWallInView(this.children[i]);
             }
             else if(this.children[i].type === "door"){
-                    object = createDoorInView(this.children[i]);
+                object = createDoorInView(this.children[i]);
             }
             else {
-                    object = createEmergencyExitInView(this.children[i]);
+                object = createEmergencyExitInView(this.children[i]);
             }
                 
-            this.path.insertChild(object);
+            this.path.addChild(object);
         }
 
         this.path.closed = true;
-        this.path.fillColor = 'red';
         console.log(this);
     };
 
+    var createRoom = function(){
+        var room = new Path.Rectangle({
+            topLeft: [this.initialPoint.x * ratio, this.initialPoint.y * ratio],
+            bottomRight: [this.finalPoint.x * ratio, this.finalPoint.y * ratio],
+            strokeColor: 'black',
+            strokeWidth: 2
+        });
+        
+        return room;
+    }
+    
+    
     var createWallInView = function (object){
             
         var wall = new Path();
@@ -75,6 +88,13 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
 
         return door;    
     };
+    
+    var fillPoints = function(){
+        for(var i = 0; i < this.children.length; i++) {
+            this.initialPoint = lowerPoint(this.initialPoint, this.children[i].initialPoint);
+            this.finalPoint = greaterPoint(this.finalPoint, this.children[i].finalPoint);
+        }
+    }
 
     this.path.onMouseDown = function(event){
             console.log(this.name);
@@ -148,5 +168,6 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
         
         return doors;
     };
+    
 };
 

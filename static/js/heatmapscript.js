@@ -5,6 +5,7 @@ VISEM.Heatmap = function(container) {
     this.ratio = 0;
     this._max = 1;
     var self = this;
+    this.colors = ['#83b5d1', '#7698b3', '#726e97', '#7f557d', '#673c4f'];
 
     this.init = function(data) {
         var dataset = prepareData(data);
@@ -16,7 +17,14 @@ VISEM.Heatmap = function(container) {
 
         this.instance.setData(dataPoints);
     };
-
+    
+    this.initByRoom = function(data) {
+        var self = this;
+        data.forEach(function(d){
+             d.path.fillColor = getColorByQuantity.call(self, d.peopleCounter);
+        });
+    };
+    
     this.setRatio = function(ratio) {
         this.ratio = ratio;
     };
@@ -24,6 +32,14 @@ VISEM.Heatmap = function(container) {
     this.setMax = function(max){
         this._max = max;
     };
+    
+    this.cleanRoomHeatmap = function(rooms) {
+        rooms.forEach(function(room){
+             room.path.fillColor = 'white';
+        });
+        
+        paper.project.view.update();
+    }
 
     var prepareData = function(data){
         var preparedData = new Array();
@@ -41,5 +57,15 @@ VISEM.Heatmap = function(container) {
         
         return preparedData;
     };
+    
+    var getColorByQuantity = function (number){
+    
+        if (number < 5)
+            return this.colors[0];
+        else if (number >= 5 && number < 10)
+            return this.colors[1];
+        else 
+            return this.colors[2];
+    }
 
 };

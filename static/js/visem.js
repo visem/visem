@@ -85,7 +85,9 @@ VISEM.Main = (function() {
         countPeople(plant.areas, people);
         
         heatInstance.setMax(people.length);
-        heatInstance.init(plant.rooms);
+        roomHeatmapLayer = new Layer();
+        heatInstance.initByRoom(plant.rooms);
+        roomHeatmapLayer.visible = false;
         
         routeLayer = new Layer();
         initRoute();
@@ -356,6 +358,9 @@ VISEM.Main = (function() {
         
         if(heatmap_check.checked === true && slice_check.checked === true){
             peopleLayer.visible = false;
+            roomHeatmapLayer.activate();
+            heatInstance.cleanRoomHeatmap(plant.rooms);
+            paper.project.activeLayer = paper.project.layers.length - 1;
             sliceLayer.visible = true;
             $("#slicewrapper").children().prop('disabled',false);
             paper.project.view.update();
@@ -368,8 +373,10 @@ VISEM.Main = (function() {
             $("#slicewrapper").children().prop('disabled',true);
             paper.project.view.update();
             heatcanvas.style.display = "block";
-            heatInstance.init(plant.rooms);
-            heatInstance.instance.repaint();
+            heatInstance.initByRoom(plant.rooms);
+            paper.project.view.update();
+//             heatInstance.init(plant.rooms);
+//             heatInstance.instance.repaint();
         } //else if (heatmap_check.checked === true && )
         
         if(route_check.checked === true) {
