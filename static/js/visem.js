@@ -351,7 +351,7 @@ VISEM.Main = (function() {
     	}
     }
     
-    var callHeatInstance = function (argument) {
+    var callHeatInstance = function (event) {
         console.log(heatInstance);
         var heatcanvas = document.getElementsByClassName("heatmap-canvas")[0];
         var div_slices = document.getElementById("slicewrapper");
@@ -371,13 +371,11 @@ VISEM.Main = (function() {
             peopleLayer.visible = false;
             sliceLayer.visible = false;
             $("#slicewrapper").children().prop('disabled',true);
-            paper.project.view.update();
-            heatcanvas.style.display = "block";
+            heatcanvas.style.display = "none";
+            roomHeatmapLayer.activate();
             heatInstance.initByRoom(plant.rooms);
             paper.project.view.update();
-//             heatInstance.init(plant.rooms);
-//             heatInstance.instance.repaint();
-        } //else if (heatmap_check.checked === true && )
+        }
         
         if(route_check.checked === true) {
             routeLayer.visible = true;
@@ -396,24 +394,24 @@ VISEM.Main = (function() {
         
     }
     
-    var semanticZoom = function (argument){
+    var semanticZoom = function (event){
     
         var point = {
-            x: argument.point.x / plant.ratio, 
-            y: argument.point.y / plant.ratio
+            x: event.point.x / plant.ratio, 
+            y: event.point.y / plant.ratio
         }
         
-        console.log("Ponto: ", argument.point, "Ponto em metros: ", point);
+        console.log("Ponto: ", event.point, "Ponto em metros: ", point);
         
         if(slice_check.checked === true){
-            console.log("True", argument.point);
+            console.log("True", event.point);
             for (var i = plant.areas.length; i--; ) {
                 if(isInside(point, plant.areas[i]))
                     console.log("Area: ", plant.areas[i], "Contains point: ", point);
             }
         }
         else{
-            console.log("False", argument.point);
+            console.log("False", event.point);
             for (var i = plant.rooms.length; i--; ) {
                 if(isInside(point, plant.rooms[i]))
                     console.log("True Room: ", plant.rooms[i].name, "Contains point: ", point);

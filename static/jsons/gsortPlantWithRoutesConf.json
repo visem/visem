@@ -73,12 +73,12 @@
                         {"cod": 21, "distance": 0, "weight": 0}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 2.25, "y": 1.90},
+                    "initialPoint": {"x": 2.30, "y": 1.90},
                     "finalPoint": {"x": 2.30, "y": 2.77}
                 },
                 {
                     "type": "EmergencyExit",
-                    "initialPoint": {"x": 2.25, "y": 1.90},
+                    "initialPoint": {"x": 2.30, "y": 1.90},
                     "finalPoint": {"x": 2.30, "y": 2.77}
                 },
                 {
@@ -128,7 +128,7 @@
                         {"cod": 25, "distance": 3, "weight": 3}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 4.32, "y": 2.72},
+                    "initialPoint": {"x": 4.32, "y": 2.77},
                     "finalPoint": {"x": 5.19, "y": 2.77}
                 },
                 {
@@ -179,7 +179,7 @@
                         {"cod": 27, "distance": 5, "weight": 2}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 6.81, "y": 0.88},
+                    "initialPoint": {"x": 6.86, "y": 0.88},
                     "finalPoint": {"x": 6.86, "y": 1.64}
                 },
                 {   "codigo": 3,
@@ -190,7 +190,7 @@
                         {"cod": 27, "distance": 5, "weight": 2}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 6.81, "y": 1.64},
+                    "initialPoint": {"x": 6.86, "y": 1.64},
                     "finalPoint": {"x": 6.86, "y": 2.40}
                 },
                 {
@@ -241,7 +241,7 @@
                         {"cod": 23, "distance": 7, "weight": 1}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 10.06, "y": 2.72},
+                    "initialPoint": {"x": 10.06, "y": 2.77},
                     "finalPoint": {"x": 10.92, "y": 2.77}
                 },
                 {   "codigo": 7,
@@ -250,12 +250,12 @@
                         {"cod": 24, "distance": 7, "weight": 0}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 8.86, "y": 9.87},
+                    "initialPoint": {"x": 8.86, "y": 9.92},
                     "finalPoint": {"x": 9.92, "y": 9.92}                
                 },
                 {
                     "type": "EmergencyExit",
-                    "initialPoint": {"x": 8.86, "y": 9.87},
+                    "initialPoint": {"x": 8.86, "y": 9.92},
                     "finalPoint": {"x": 9.92, "y": 9.92}
                 },
                 {
@@ -283,7 +283,7 @@
                     ],
                     "type": "door",
                     "initialPoint": {"x": 6.86, "y": 7.92},
-                    "finalPoint": {"x": 6.81, "y": 8.82}              
+                    "finalPoint": {"x": 6.86, "y": 8.82}              
                 }
             ]
         },
@@ -308,7 +308,7 @@
                         {"cod": 28, "distance": 4, "weight": 2}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 10.87, "y": 1.19},
+                    "initialPoint": {"x": 10.92, "y": 1.19},
                     "finalPoint": {"x": 10.92, "y": 2.04}
                 },
                 {
@@ -343,12 +343,12 @@
                         {"cod": 34, "distance": 5, "weight": 3}
                     ],
                     "type": "door",
-                    "initialPoint": {"x": 15.57, "y": 1.19},
+                    "initialPoint": {"x": 15.62, "y": 1.19},
                     "finalPoint": {"x": 15.62, "y": 2.04}
                 },
                 {
                     "type": "EmergencyExit",
-                    "initialPoint": {"x": 15.57, "y": 1.19},
+                    "initialPoint": {"x": 15.62, "y": 1.19},
                     "finalPoint": {"x": 15.62, "y": 2.04}
                 }
             ]

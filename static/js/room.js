@@ -44,7 +44,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
             topLeft: [this.initialPoint.x * ratio, this.initialPoint.y * ratio],
             bottomRight: [this.finalPoint.x * ratio, this.finalPoint.y * ratio],
             strokeColor: 'black',
-            strokeWidth: 2
+            strokeWidth: 1
         });
         
         return room;
@@ -69,7 +69,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
                     bottomRight: [object.finalPoint.x*ratio, object.finalPoint.y*ratio],
                     strokeColor: 'green',
                     fillColor: 'green',
-                    strokeWidth: 5
+                    strokeWidth: 7
             });
 
         return emergencyExit;
@@ -83,7 +83,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
             bottomRight: [object.finalPoint.x*ratio, object.finalPoint.y*ratio],
             strokeColor: 'red',
             fillColor: 'red',
-            strokeWidth: 5
+            strokeWidth: 7
         });
 
         return door;    

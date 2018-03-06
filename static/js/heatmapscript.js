@@ -64,8 +64,12 @@ VISEM.Heatmap = function(container) {
             return this.colors[0];
         else if (number >= 5 && number < 10)
             return this.colors[1];
-        else 
+        else if (number >= 10 && number < 20)
             return this.colors[2];
+        else if (number >= 20 && number < 40)
+            return this.colors[3];
+        else 
+            return this.colors[4];
     }
 
 };
