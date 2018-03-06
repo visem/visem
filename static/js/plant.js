@@ -43,29 +43,29 @@ VISEM.Plant.prototype.init = function(canvasWrapper) {
     };
 
     //Initialize the Graph with your vertices and edges.
-//     for (var i = 0; i < this.rooms.length; i++) {
-//         var tempChildren = this.rooms[i].children;
-//         var route;
-//         for (var j = 0; j < tempChildren.length; j++) {
-//             if(tempChildren[j].type === "door"){
-//                 
-//                 for (var k = 0; k < tempChildren[j].relativePaths.length; k++) {
-//                     var edge = new VISEM.Edge(k, tempChildren[j].codigo, tempChildren[j].relativePaths[k].distance,
-//                                               tempChildren[j].relativePaths[k].weight);
-//                     this.graph.addEdge(edge);    
-//                 };
-//                 
-//                 var initialPoint = new Point(tempChildren[j].initialPoint.x, tempChildren[j].initialPoint.y);
-//                 var finalPoint = new Point(tempChildren[j].finalPoint.x, tempChildren[j].finalPoint.y);
-// 
-//                 var centerPoint = new Point((initialPoint.x + finalPoint.x) / 2, (initialPoint.y + finalPoint.y) / 2);
-// 
-//                 var vertex = new VISEM.Vertex(tempChildren[j].codigo, centerPoint, this.ratio, this.rooms[i].idRoom);
-//                 
-//                 this.graph.addVertex(vertex);
-//             };
-//         };
-//     };
+    for (var i = 0; i < this.rooms.length; i++) {
+        var tempChildren = this.rooms[i].children;
+        var route;
+        for (var j = 0; j < tempChildren.length; j++) {
+            if(tempChildren[j].type === "door"){
+                
+                for (var k = 0; k < tempChildren[j].relativePaths.length; k++) {
+                    var edge = new VISEM.Edge(k, tempChildren[j].codigo, tempChildren[j].relativePaths[k].distance,
+                                              tempChildren[j].relativePaths[k].weight);
+                    this.graph.addEdge(edge);    
+                };
+                
+                var initialPoint = new Point(tempChildren[j].initialPoint.x, tempChildren[j].initialPoint.y);
+                var finalPoint = new Point(tempChildren[j].finalPoint.x, tempChildren[j].finalPoint.y);
+
+                var centerPoint = new Point((initialPoint.x + finalPoint.x) / 2, (initialPoint.y + finalPoint.y) / 2);
+
+                var vertex = new VISEM.Vertex(tempChildren[j].codigo, centerPoint, this.ratio, this.rooms[i].idRoom);
+                
+                this.graph.addVertex(vertex);
+            };
+        };
+    };
 };
 
 VISEM.Plant.prototype.draw = function() {
