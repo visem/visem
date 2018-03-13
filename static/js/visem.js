@@ -16,6 +16,9 @@ VISEM.Main = (function() {
     var plantLayer;
     var routeLayer;
     var sliceFile = "/visem/slice/json/";
+    
+    var projectCenterPoint = paper.view.center;
+    var zoomFactor = paper.view.zoom;
 
     var plant = new VISEM.Plant();
     var people = new Array();
@@ -37,7 +40,6 @@ VISEM.Main = (function() {
     
     var tool = new paper.Tool();
     
-
     window.onload = function() {
         getResource("GET", plantFile, initPlant);
         plant.init(canvas);
@@ -237,9 +239,12 @@ VISEM.Main = (function() {
         /*
         *TODO Add Semantic Zoom event here
         * 
-        * semanticZoom(event);
+        * 
         */
         
+        if(event.event.shiftKey){
+            semanticZoom(event);
+        }
         
         if(plant.graph.zoom == 0)
             return;
@@ -403,20 +408,26 @@ VISEM.Main = (function() {
         
         console.log("Ponto: ", event.point, "Ponto em metros: ", point);
         
-        if(slice_check.checked === true){
-            console.log("True", event.point);
-            for (var i = plant.areas.length; i--; ) {
-                if(isInside(point, plant.areas[i]))
-                    console.log("Area: ", plant.areas[i], "Contains point: ", point);
-            }
-        }
-        else{
-            console.log("False", event.point);
-            for (var i = plant.rooms.length; i--; ) {
-                if(isInside(point, plant.rooms[i]))
-                    console.log("True Room: ", plant.rooms[i].name, "Contains point: ", point);
+        for (var i = plant.rooms.length; i--; ) {
+            if(isInside(point, plant.rooms[i])) {
+                console.log("Room: ", plant.rooms[i].name, "Contains point: ", point);
+                if(paper.view.zoom > zoomFactor) {
+                    paper.view.center = projectCenterPoint;
+                    paper.view.zoom = zoomFactor;
+                    peopleLayer.visible = false;
+                }
+                else {
+                    //paper.view.center = plant.rooms[i].path.center;
+                    console.log(plant.rooms[i].path);
+                    console.log("center", plant.rooms[i].center);
+                    paper.view.center = plant.rooms[i].center;
+                    paper.view.zoom = 1.25;
+                    peopleLayer.visible = true;
+                }
+                
+                return;
             }
         }
     }
-
+    
 })();

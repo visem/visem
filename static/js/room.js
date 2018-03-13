@@ -7,6 +7,7 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
     this.totalWidth = totalWidth;
     this.totalHeight = totalHeight;
     this.children = children;
+    this.center = 0;
     this.ratio = ratio;
     this.initialPoint = this.children[0].initialPoint;
     this.finalPoint = this.children[0].finalPoint;
@@ -16,11 +17,12 @@ VISEM.Room = function(name, type, totalWidth, totalHeight, children, ratio){
         
         fillPoints.call(this);
         this.path.addChild(createRoom.call(this));
+        this.center = new Point(((this.initialPoint.x + this.finalPoint.x) / 2) * ratio, 
+                                ((this.initialPoint.y + this.finalPoint.y) / 2) * ratio);
         
         for (var i = 0; i < this.children.length; i++) {
                 
             var object = new Path();
-            
             
             if(this.children[i].type === "wall"){
 //                 object = createWallInView(this.children[i]);
